@@ -23,7 +23,11 @@ filter!(x->longitudes(x) > 100, elements(occ))
 occurrence_records = [Occurrences(filter(x->startswith(s)(entity(x)), elements(occ))) for s in species]
 
 
+
 # Visualization of the first species occurrences
+countr = getpolygon(PolygonData(NaturalEarth, Countries))
+sk = countr["South Korea"]
+
 poly(sk)
 scatter!(occurrence_records[begin], color=:red, markersize=3)
 current_figure()
