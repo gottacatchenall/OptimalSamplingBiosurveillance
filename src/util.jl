@@ -149,16 +149,3 @@ function get_viruses(df, host)
     return unique(this_host_df.pathogen_species_cleaned)
 end
 
-
-
-df = load_dataframe()
-
-filter(c->c.country=="Senegal", df).pathogen_species_cleaned
-
-df = get_country_df(df, "Senegal")
-
-df
-
-df.number_positive
-
-df.pathogen_species_cleaned
