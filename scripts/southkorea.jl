@@ -8,6 +8,12 @@ include(joinpath("..", "src", "sdms.jl"))
 include(joinpath("..", "src", "kriging.jl"))
 include(joinpath("..", "src", "plotting.jl"))
 
+
+# Hosts and Viruses of interest
+hosts = ["Rattus norvegicus", "Apodemus agrarius", "Crocidura lasiura"]
+viruses = ["Orthohantavirus hantanense", "Orthohantavirus seoulense"]
+
+
 # Download Occurrences from GBIF
 doi = "10.15468/dl.wzcxp9"
 occurrence_records = GBIF.download(doi)
@@ -16,10 +22,6 @@ occurrence_records = GBIF.download(doi)
 filter!(x -> !ismissing(place(x)), elements(occurrence_records))
 filter!(x -> longitudes(x) > 100, elements(occurrence_records))
 occurrence_by_species = Dict([s=>Occurrences(filter(x -> startswith(s)(entity(x)), elements(occurrence_records))) for s in hosts])
-
-# Hosts and Viruses of interest
-hosts = ["Rattus norvegicus", "Apodemus agrarius", "Crocidura lasiura"]
-viruses = ["Orthohantavirus hantanense", "Orthohantavirus seoulense"]
 
 # Get Polygons
 south_korea_polygon = getpolygon(PolygonData(GADM, Countries), country="KOR")
@@ -206,12 +208,12 @@ arrowcolor = :grey40
 
 begin 
 
-f = Figure(size=(1000, 1000))
+f = Figure(size=(1100, 700))
 g_base = GridLayout(f[1,1])
 
 g_top_left = GridLayout(g_base[1,1])
 g_top_right = GridLayout(g_base[1,2])
-g_bottom = GridLayout(g_base[2,:])
+#g_bottom = GridLayout(g_base[2,:])
 
 # -------------- Dose vs. Dose Uncertainty Bivariate  --------------
 bivar, colormatrix = get_bivariate(dose_priority, uncertainty_priority; nbreaks=nbreaks)
@@ -223,8 +225,9 @@ heatmap!(ax, bivar, colormap=vec(colormatrix))
 poly!(ax, north_korea_polygon, color=:grey85, strokewidth=2, strokecolor=:grey40)
 add_bivariate_legend!(g_top_left[1,1], colormatrix, nbreaks, xlabel="Dose", ylabel="Dose\nUncertainty")
 
+
 # -------------- Dose vs. Prevalence Uncertainty Bivariate  --------------
-bivar, colormatrix = get_bivariate(dose_priority, prevalence_priority; nbreaks=nbreaks)
+bivar, colormatrix = get_bivariate(dose_priority, prevalence_priority; nbreaks=nbreaks,  high2=colorant"#f2aa7a")
 ax = Axis(g_top_left[1,2], aspect=DataAspect(), xgridvisible=false, ygridvisible=false)
 limits!(ax, bounds...)
 text!(ax, 129.2, 37.95, text="B", fontsize=25, font=:bold, color=:grey20)
@@ -276,7 +279,7 @@ heatmap!(ax, environmental_layers[1], colormap=[Makie.ColorSchemes.lipari[1]])
 heatmap!(ax, total_priority, colormap=:lipari)
 poly!(ax, north_korea_polygon, color=:grey85, strokewidth=2, strokecolor=:grey40)
 scatter!(ax, [n for n in bon], color=colorant"#fff", strokecolor=:black, strokewidth=2, marker=marker, markersize=markersize)
-add_colorbar!(g_top_right[1,1], Makie.ColorSchemes.lipari, title="Total Priority", titlesize=15, height=0.023, width=0.35, halign=0.95, valign=0.25, titlealign=:right)
+add_colorbar!(g_top_right[1,1], Makie.ColorSchemes.lipari, title="Total Priority", titlesize=15, height=0.023, width=0.3, halign=0.9, valign=0.22, titlealign=:right)
 leg = axislegend(
     ax,
     [MarkerElement(marker = m, color=:white, strokewidth=2, markersize=23) for m in markers],
@@ -287,6 +290,7 @@ leg = axislegend(
 )
 
 
+#= 
 # -------------- Adjusting Prevalence Weight --------------
 w_prev = 0.1:0.2:0.9
 lower_ax = [Axis(g_bottom[1,i], aspect=DataAspect(), xgridvisible=false, ygridvisible=false) for i in 1:length(w_prev)]
@@ -326,6 +330,7 @@ rowgap!(g_top_left, 1, Relative(0.001))
 
 colsize!(g_base, 1, Relative(0.53))
 rowsize!(g_base, 1, Relative(0.7))
+=#
 
 f
 end
