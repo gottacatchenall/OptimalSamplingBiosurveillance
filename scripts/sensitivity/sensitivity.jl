@@ -1,13 +1,21 @@
-using CSV, DataFrames, HTTP, JSON
-using CairoMakie
+using Pkg
+Pkg.activate(@__DIR__)
+
+using CSV, DataFrames, JSON
+#using CairoMakie
 using SpeciesDistributionToolkit
 using Statistics
 using TernaryDiagrams
+using TernaryDiagrams.Makie
+
+using CairoMakie
+
+const AG = SpeciesDistributionToolkit.SimpleSDMPolygons.AG
 
 const SDT = SpeciesDistributionToolkit
 
-include(joinpath("..", "src", "util.jl"))
-include(joinpath("..", "src", "plotting.jl"))
+include(joinpath("..", "..", "src", "util.jl"))
+include(joinpath("..", "..", "src", "plotting.jl"))
 
 # Load SDMs
 sdms = read_sdms(joinpath("artifacts", "India"))
@@ -23,6 +31,21 @@ afghan_polygon = getpolygon(PolygonData(GADM, Countries), country="AFG")
 myanmar_polygon = getpolygon(PolygonData(GADM, Countries), country="MMR") 
 sri_lanka_polygon = getpolygon(PolygonData(GADM, Countries), country="LKA") 
 background_land = vcat([pakistan_polygon, bng_polygon, china_polygon, nepal_polygon, bhutan_polygon, afghan_polygon, sri_lanka_polygon, myanmar_polygon]...)
+
+
+# Remove contested areas from India polygon
+kashmir_polygon = india_polygon[2]
+arunuachal_pradesh_polygon = india_polygon[5]
+
+india_polygon = india_polygon - arunuachal_pradesh_polygon
+
+
+
+# Remove contested areas from India polygon
+
+kashmir_polygon = india_polygon[2]
+arunuachal_pradesh_polygon = india_polygon[5]
+india_polygon = india_polygon - kashmir_polygon - arunuachal_pradesh_polygon
 
 # Get polygons with dashes for contested regions
 kashmir_dashes = add_dashes(kashmir_polygon)
@@ -75,6 +98,12 @@ for (wi, w) in enumerate(weights)
 end
 
 
+
+maes, weights
+
+
+
+
 # Plotting arguments
 background_land_color = :grey92
 bbox = SDT.boundingbox(india_polygon)
@@ -103,14 +132,14 @@ begin
     ax1 = Axis(
         gright[1,1];
         backgroundcolor=(:red, 0.25),
-        ax_args...
+        #ax_args...
     )
     limits!(ax1, bbox...)
 
     ax2 = Axis(
         gright[2,1];
         backgroundcolor=(:green, 0.25),
-        ax_args...
+        #ax_args...
     )
     limits!(ax2, bbox...)
 
@@ -118,7 +147,7 @@ begin
     ax3 = Axis(
         gright[3,1];
         backgroundcolor=(:blue, 0.2),
-        ax_args...
+        #ax_args...
     )
     limits!(ax3, bbox...)
 
@@ -207,4 +236,6 @@ begin
     fig
 
 end 
+
+
 save("plots/sensitivity.png", fig)

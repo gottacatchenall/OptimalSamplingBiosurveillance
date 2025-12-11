@@ -50,7 +50,7 @@
   )
   par(first-line-indent: 0em)[
     #text(
-      size: 0.95em
+      size: 0.92em
     )[#abstract]
   ]
 }
@@ -68,23 +68,24 @@ for person in authors.keys() [
 
 v(0.25em)
 
-// Print Corresponding Email
-text(font: "Iosevka", size: 0.85em)[Corresponding Author: #corresponding_email]
-v(1em)
-
 // Print Institutions
 for (i,inst) in institutions.keys().enumerate() {
   let pos = institutions.keys().position(y => y == inst) + 1
-  text(0.8em, rgb("#222"))[#super()[#text(size: 1.2em, weight: "bold")[#pos ]]#institutions.at(inst)]
+  text(0.78em, rgb("#222"))[#super()[#text(size: 1.2em, weight: "bold")[#pos ]]#institutions.at(inst)]
     if institutions.keys().last() != inst {text(size: 0.7em)[\ ]}
   }
+
+  // Print Corresponding Email
+  v(0.4em)
+  text( style: "italic", size: 0.9em)[Corresponding Author: #corresponding_email]
 }
 
 #let showbibliography(file) = {
   pagebreak()
+  [= References]
   columns(2)[
-  #text(size: 0.8em)[
-    #bibliography(file, title: "References", style: "springer-basic-author-date")
+  #text(size: 0.75em)[
+    #bibliography(file, title: text()[#v(0.5em)], style: "springer-basic-author-date")
   ]]
 }
 

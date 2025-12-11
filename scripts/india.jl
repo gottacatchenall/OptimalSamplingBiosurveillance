@@ -1,11 +1,14 @@
 using ColorBlendModes
 using Random
-const AG = SDT.SimpleSDMPolygons.AG
 
 include(joinpath("..", "src", "sdms.jl"))
 include(joinpath("..", "src", "plotting.jl"))
+include(joinpath("..", "src", "util.jl"))
+using BiodiversityObservationNetworks
+const AG = SDT.SimpleSDMPolygons.AG
 
-# Load historical sampling sites from Rodrigues (1978)
+
+# Load historical sampling sites from Rodrigues et al. (1978)
 historical_coords = unique([(r.longitude, r.latitude) for r in eachrow(CSV.read(joinpath("data", "lassa_india.csv"), DataFrame))])
 
 # Download occurrences from GBIF and group by species
@@ -49,11 +52,9 @@ write_sdm_artifacts(joinpath("artifacts", "India"), sdms)
 # Load SDMs (you can skip previous 2 lines if they already exist)
 sdms = read_sdms(joinpath("artifacts", "India"))
 
+weights = [0.11, 0.34, 0.2, 0.35]
 
-# Random species Weighting
-Random.seed!(42)
-weights = rand(length(sdms))
-weights ./= sum(weights)
+begin 
 
 # Even Dose vs. Uncertainty Weighting
 w_dose = 0.5
@@ -124,6 +125,7 @@ bivar2, colormatrix2 = get_bivariate(
 )
 
 # Sample a BON
+Random.seed!(42)
 bon = BiodiversityObservationNetworks.sample(
     BalancedAcceptance(), 
     priority, 
@@ -162,7 +164,7 @@ CairoMakie.activate!(; px_per_unit=3)
 bbox = SDT.boundingbox(india_polygon)
 bbox = bbox.left, bbox.right, bbox.bottom, bbox.top + 2.
 
-begin 
+#begin 
     fig = Figure(size=(900,900))
     ax_dose = Axis(fig[1,1]; ax_settings...)
     limits!(ax_dose, bbox...)
@@ -178,7 +180,6 @@ begin
 
     poly!(ax_dose, background_land, color=background_land_color)
     lines!(ax_dose, background_land, color=:grey80)
-    #heatmap!(ax_dose, weighted_dose)
     heatmap!(ax_dose, bivar, colormap=vec(colormatrix))
     poly!(ax_dose, kashmir_polygon; disputed_args...)
     poly!.(ax_dose, kashmir_dashes; disputed_dashes_args...)
@@ -196,11 +197,19 @@ begin
         yticksvisible=false,
         xticklabelsvisible=false,
         yticklabelsvisible=false,
-        xlabel = "Dose",
-        ylabel = "Uncertainty",
+        xlabel = "",
+        ylabel = "",
     )
     heatmap!(ax_inset, (reshape(colormatrix, (nbreaks1,nbreaks1))))
 
+    annotation!(ax_dose, -83, 0, 93, 8; text = "Dose", style = Ann.Styles.LineArrow(head=Ann.Arrows.Head(length=9)))
+    annotation!(ax_dose, 0, -55, 84.7, 17.5; text = " ", style = Ann.Styles.LineArrow(head=Ann.Arrows.Head(length=9)))
+    text!(
+        ax_dose,
+        [(85.1, 8.9)],
+        text = "Uncertainty",
+        rotation = π/2,
+    )
     
     poly!(ax_uncertainty, background_land, color=background_land_color)
     lines!(ax_uncertainty, background_land, color=:grey80)
@@ -255,6 +264,7 @@ begin
     cmap = [get(Makie.ColorSchemes.lipari, i) for i in 0:0.025:1]
     X = hcat(0:0.025:1)
     heatmap!(cbar_axis, X, colormap=cmap)
+    annotation!(ax_priority, -45, 0, 92.3, 10.9; text = " ", style = Ann.Styles.LineArrow())
 
 
 

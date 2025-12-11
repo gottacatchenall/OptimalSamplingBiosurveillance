@@ -77,7 +77,7 @@ end
 # ------------------------------------------------------------------------------------
 # Set Weights
 # ------------------------------------------------------------------------------------
-Random.seed!(420)
+Random.seed!(42)
 host_weights = rand(Dirichlet([2. for _ in 1:length(hosts)]))
 virus_weights = rand(Dirichlet([1. for _ in 1:length(viruses)]))
 w_prevalence = 0.5
@@ -223,7 +223,10 @@ text!(ax, 129.2, 37.95, text="A", fontsize=25, font=:bold, color=:grey20)
 hidedecorations!(ax)
 heatmap!(ax, bivar, colormap=vec(colormatrix))
 poly!(ax, north_korea_polygon, color=:grey85, strokewidth=2, strokecolor=:grey40)
-add_bivariate_legend!(g_top_left[1,1], colormatrix, nbreaks, xlabel="Dose", ylabel="Dose\nUncertainty")
+add_bivariate_legend!(g_top_left[1,1], colormatrix, nbreaks, xlabel="", ylabel="", halign=0.86, width=0.26)
+annotation!(ax, -45, 0, 129.7, 33.15; text = "Dose", fontsize=11, style = Ann.Styles.LineArrow(head = Ann.Arrows.Head(length=7)))
+annotation!(ax, 0, -70, 128.3, 34.5; text = " ", fontsize=11, style = Ann.Styles.LineArrow(head = Ann.Arrows.Head(length=7)))
+text!(ax, 128.13, 33.3, text="Dose\nUncertainty", fontsize=11, rotation=π/2)
 
 
 # -------------- Dose vs. Prevalence Uncertainty Bivariate  --------------
@@ -234,7 +237,10 @@ text!(ax, 129.2, 37.95, text="B", fontsize=25, font=:bold, color=:grey20)
 hidedecorations!(ax)
 heatmap!(ax, bivar, colormap=vec(colormatrix))
 poly!(ax, north_korea_polygon, color=:grey85, strokewidth=2, strokecolor=:grey40)
-add_bivariate_legend!(g_top_left[1,2], colormatrix, nbreaks, xlabel="Dose", ylabel="Prevalence\nUncertainty")
+add_bivariate_legend!(g_top_left[1,2], colormatrix, nbreaks, xlabel="", ylabel="", halign=0.86, width=0.26)
+annotation!(ax, -45, 0, 129.7, 33.15; text = "Dose", fontsize=11, style = Ann.Styles.LineArrow(head = Ann.Arrows.Head(length=7)))
+annotation!(ax, 0, -70, 128.3, 34.5; text = " ", fontsize=11, style = Ann.Styles.LineArrow(head = Ann.Arrows.Head(length=7)))
+text!(ax, 128.13, 33.3, text="Prevalence\nUncertainty", fontsize=11, rotation=π/2)
 
 
 # -------------- Sampling Type Strata  --------------
@@ -254,6 +260,7 @@ leg = axislegend(
     position=:rb,
     labelsize=12,
     rowgap=1,
+    framevisible=false
 )
 f 
 
@@ -286,51 +293,8 @@ leg = axislegend(
     ["Occurrence", "Prevalence", "Both"],
     position=:rb,
     "Sampling Type",
-    rowgap = 5
+    rowgap = 5,
 )
-
-
-#= 
-# -------------- Adjusting Prevalence Weight --------------
-w_prev = 0.1:0.2:0.9
-lower_ax = [Axis(g_bottom[1,i], aspect=DataAspect(), xgridvisible=false, ygridvisible=false) for i in 1:length(w_prev)]
-
-for (i,w_p) in enumerate(w_prev)
-    tp = get_total_priority(w_p, within_prev_priority, within_occ_priority)
-    limits!(lower_ax[i], bounds...)
-    hidedecorations!(lower_ax[i])
-
-    poly!(lower_ax[i], north_korea_polygon, color=:grey85, strokewidth=2, strokecolor=:grey40)
-    heatmap!(lower_ax[i], environmental_layers[1], colormap=[Makie.ColorSchemes.lipari[1]])
-    add_colorbar!(g_bottom[1,i], Makie.ColorSchemes.lipari, title="Priority", titlesize=10, height=0.04, width=0.30, halign=0.8, valign=0.1)
-
-    heatmap!(
-        lower_ax[i], 
-        tp, 
-        colormap=:lipari
-    )
-end
-
-# -------------- Bottom Arrow --------------
-
-bottom_axis = Axis(g_bottom[2,:])
-
-hidedecorations!(bottom_axis)
-hidespines!(bottom_axis)
-limits!(bottom_axis, 0,1,0,1.4)
-lines!(bottom_axis, [0.1,0.9], [1., 1.], linewidth=5, color=arrowcolor)
-scatter!(bottom_axis, [0.9], [1.], marker=:rtriangle, markersize=30, color=arrowcolor)
-text!(bottom_axis, [0.26], [0.], fontsize=20, font=:bold, color=arrowcolor, text="Increasing weight toward prevalence data")
-
-rowsize!(g_bottom, 2, Relative(0.14))
-rowgap!(g_bottom, 1, Relative(0.001))
-
-colgap!(g_top_left, 1, Relative(0.001))
-rowgap!(g_top_left, 1, Relative(0.001))
-
-colsize!(g_base, 1, Relative(0.53))
-rowsize!(g_base, 1, Relative(0.7))
-=#
 
 f
 end

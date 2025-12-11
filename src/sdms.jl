@@ -103,7 +103,8 @@ function calculate_evaluation_metrics(y_true, y_predicted, thresholds=0:0.001:1)
     pr_auc = sum(pr_dx .* (pr_dy ./ 2.0))
     
     # Find optimal threshold using True Skill Statistic
-    optimal_threshold, threshold_index = findmax(trueskill.(confusion_matrices))
+    _, threshold_index = findmax(trueskill.(confusion_matrices))
+    optimal_threshold = thresholds[threshold_index]
     
     return Dict(
         :prauc => pr_auc,
@@ -135,32 +136,31 @@ function fit_sdm(
     features, labels = prepare_training_data(environmental_layers, presence_layer, absence_layer)
     fold_indices = SDeMo.kfold(labels, features, k=k)
     
-    fold_statistics = []
-    prediction_layers = []
-    uncertainty_layers = []
-    trained_models = []
         
+    # Storage for results
+    true_labels = Bool[]
+    out_of_fold_predictions = Float32[]
+
+    # Train and evaluate each fold
     for (train_idx, validation_idx) in fold_indices
         model = train_model(features[:, train_idx], labels[train_idx])
         
+        # Evaluate on validation set
         validation_predictions = predict_distribution(model, features[:, validation_idx])[:, 1]
-        push!(fold_statistics, calculate_evaluation_metrics(labels[validation_idx], validation_predictions))
-        
-        prediction, uncertainty = create_prediction_layer(model, environmental_layers)
-        push!(prediction_layers, prediction)
-        push!(uncertainty_layers, uncertainty)
-        push!(trained_models, model)
+
+        true_labels = vcat(true_labels, labels[validation_idx])
+        out_of_fold_predictions = vcat(out_of_fold_predictions, validation_predictions)
     end
     
-    aggregated_statistics = aggregate_fold_statistics(fold_statistics)
-    
-    mean_prediction = mean(prediction_layers)
-    uncertainty_map = mean(uncertainty_layers)
+    fit_stats = calculate_evaluation_metrics(true_labels, out_of_fold_predictions)
+
+    model = train_model(features, labels)
+    prediction, uncertainty = create_prediction_layer(model, environmental_layers)    
     
     return Dict(
-        :prediction => mean_prediction, 
-        :uncertainty => uncertainty_map, 
-        :metrics => aggregated_statistics, 
+        :prediction => prediction, 
+        :uncertainty => uncertainty, 
+        :metrics => fit_stats, 
         :presences => presence_layer, 
         :absences => absence_layer
     )
