@@ -100,8 +100,11 @@ end
 
 
 maes, weights
-
-
+df = DataFrame(mae=[], rattus_weight=[], suncus_weight=[], hystrix_weight = [])
+for i in eachindex(maes)
+    push!(df, (maes[i], weights[i]...))
+end 
+CSV.write("data/sensitivity.csv", df)
 
 
 # Plotting arguments

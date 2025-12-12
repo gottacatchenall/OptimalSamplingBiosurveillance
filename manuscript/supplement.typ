@@ -30,6 +30,18 @@
 
 = A protocol for biodiversity-informed wildlife disease surveillance -- Supplemental Material
 
+== Example Sensitivity Analysis 
+
+As an example of weight sensitivity analysis, in @sensitivity we apply random noise to each possible value of the weights for the three host species we assess in the second case study. The ternary plot in the left of @sensitivity represents each possible combination of weights for three species. The color of each point is the sensitivity $S(bold(w))$ for noise drawn from standard Normal distribution with $sigma_("noise")=0.01$ across 100 samples. 
+
+
+#figure(
+  image("../plots/sensitivity.png", width: 110%),
+  caption: [The sensitivity of the overall priority map to adjusted weights. The color of each point on the left ternary diagram is proportional to the sensitivity of each point to nudging weights (see main text). Each panel on the right corresponds to the overall priority map at weight values in the corresponding color on the left.]
+) <sensitivity>
+
+== Methods for incorporating prevalence data with varying levels of spatial and temporal coverage
+
 #figure(numbering: "1", caption: [Methods for incorporating prevalence data with varying levels of spatial and temporal coverage])[
 #table(
   columns: (12%, auto, auto),
