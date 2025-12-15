@@ -77,7 +77,7 @@ As an example of weight sensitivity analysis, in @sensitivity we apply random no
   [High Temporal Coverage], 
 
     [Time-series analysis, e.g. to determine if a given sampled location is either a persistent reservoir or underwent a transient outbreak. As there is not enough spatial prevalence data to make spatially explicit predictions, the proximity to high or low prevalence areas can be used to weigh priority (see the final subsection of the protocol).],
-    [In the ideal case, where there is both high spatial and temporal coverage, hierarchical Bayesian methods from the spatial context can be extended to include time-series components --- see @Zhou2008EwmaSmoothing @boulieri2020bayesian @lee2014cluster. Similarly, ecological models that incorporate imperfect detection (e.g. N-mixture models) can be extended to spatiotemporal context @zhao2017spatially, which can then be extended to include the hierarchical nature of pathogen detection @direnzo2019diseasestructured.], 
+    [In the ideal case, where there is both high spatial and temporal coverage, hierarchical Bayesian methods from the spatial context can be extended to include time-series components --- see @Zhou2008EwmaSmoothing @Boulieri2020BayesianMixture @Lee2014ClusterDetection. Similarly, ecological models that incorporate imperfect detection (e.g. N-mixture models) can be extended to spatiotemporal context @Zhao2017SpatiallyExplicit, which can then be extended to include the hierarchical nature of pathogen detection @DiRenzo2019DiseasestructuredNmixture.], 
 
 
 )] <prev-data-types>

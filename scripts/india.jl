@@ -1,3 +1,6 @@
+@info "Running India case study..."
+
+
 using ColorBlendModes
 using Random
 
@@ -46,6 +49,7 @@ environmental_layers = [Float32.(SDMLayer(RasterData(WorldClim2, BioClim); resol
 mask!(environmental_layers, india_polygon)
 
 # Fit SDMs
+@info "\tFitting SDMs for India Case Study..."
 sdms = Dict([s=>fit_sdm(occurrence_by_species[s], environmental_layers) for s in keys(occurrence_by_species)])
 write_sdm_artifacts(joinpath("artifacts", "India"), sdms)
 
@@ -53,8 +57,6 @@ write_sdm_artifacts(joinpath("artifacts", "India"), sdms)
 sdms = read_sdms(joinpath("artifacts", "India"))
 
 weights = [0.11, 0.34, 0.2, 0.35]
-
-begin 
 
 # Even Dose vs. Uncertainty Weighting
 w_dose = 0.5
@@ -164,7 +166,9 @@ CairoMakie.activate!(; px_per_unit=3)
 bbox = SDT.boundingbox(india_polygon)
 bbox = bbox.left, bbox.right, bbox.bottom, bbox.top + 2.
 
-#begin 
+
+@info "\tMaking Figure for India Case Study..."
+begin 
     fig = Figure(size=(900,900))
     ax_dose = Axis(fig[1,1]; ax_settings...)
     limits!(ax_dose, bbox...)

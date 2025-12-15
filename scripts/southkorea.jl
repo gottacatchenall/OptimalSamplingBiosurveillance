@@ -1,13 +1,16 @@
+@info "Running South Korea case study..."
+
 using BiodiversityObservationNetworks
 using Random
+using JSON
 const BONs = BiodiversityObservationNetworks
 
 
 # Load Dependencies 
 include(joinpath("..", "src", "sdms.jl"))
-include(joinpath("..", "src", "kriging.jl"))
 include(joinpath("..", "src", "plotting.jl"))
-
+include(joinpath("..", "src", "util.jl"))
+include(joinpath("..", "src", "kriging.jl"))
 
 # Hosts and Viruses of interest
 hosts = ["Rattus norvegicus", "Apodemus agrarius", "Crocidura lasiura"]
@@ -32,6 +35,7 @@ environmental_layers = [Float32.(SDMLayer(RasterData(CHELSA2, BioClim); layer=i,
 mask!(environmental_layers, south_korea_polygon)
 
 # Fit and Write SDMs
+@info "\tFitting SDMs for South Korea Case Study..."
 sdms = Dict([s=>fit_sdm(occurrence_by_species[s], environmental_layers, pseudoabsence_buffer_distance=8.) for s in hosts])
 write_sdm_artifacts(joinpath("artifacts", "SouthKorea"), sdms)
 
@@ -49,27 +53,20 @@ bounds = (125.8, 129.8, 33., 38.6)
 # ------------------------------------------------------------------------------------
 # Kriging for Prevalence 
 # ------------------------------------------------------------------------------------
-country_df = get_country_df(load_dataframe(), "South Korea")
-hv_pairs = get_prevalence_data(country_df)
+@info "\tRunning kriging..."
+hv_pairs = get_prevalence_data()
 interpolated_prev = []
 for p in hv_pairs
-    num_obs = length(p[:prevalence])
-    if num_obs > 5 && sum(p[:prevalence]) > 0
-        gp_result, gp_var = fit_gp(p[:coordinates], p[:prevalence], environmental_layers[begin], south_korea_polygon)
-        push!(
-            interpolated_prev,
-            Dict(
-                :host=>p[:host],
-                :virus=>p[:virus],
-                :coordinates=>p[:coordinates],
-                :sample_size=>p[:sample_size],
-                :prevalence_data=>p[:prevalence],
-                :prev_predict=>gp_result,
-                :prev_var=>gp_var,
-                :sampled_coordinates => p[:coordinates]
-            )
+    gp_result, gp_var = fit_gp(p[:coordinates], p[:prevalence], environmental_layers[begin], south_korea_polygon)
+    push!(
+        interpolated_prev,
+        Dict(
+            :host=>p[:host],
+            :virus=>p[:virus],
+            :prev_predict=>gp_result,
+            :prev_var=>gp_var,
         )
-    end
+    )
 end
 
 
@@ -114,15 +111,15 @@ for hi in eachindex(hosts)
     w_host = host_weights[hi]
     P = quantize(sdms[hosts[hi]][:prediction])
     U = quantize(sdms[hosts[hi]][:uncertainty])
-    dose_priority += w_host .* (w_dose .* P)   
-    uncertainty_priority += w_host * (w_uncertainty .* U)
+    global dose_priority += w_host .* (w_dose .* P)   
+    global uncertainty_priority += w_host * (w_uncertainty .* U)
     for vi in eachindex(viruses)
         # Does this have a spatial prev estimate?
         idx = findfirst([p[:host] == hosts[hi] && p[:virus] == viruses[vi] for p in interpolated_prev])
         if !isnothing(idx)
             prev_unc = quantize(interpolated_prev[idx][:prev_var])
             this_pair = rescaled_hv_weights[hi, vi] .* prev_unc
-            prevalence_priority += this_pair
+            global prevalence_priority += this_pair
         end 
     end
 end
@@ -206,6 +203,8 @@ marker = [markers[strata[n...]]  for n in bon]
 markersize = [markersizes[strata[n...]]  for n in bon]
 arrowcolor = :grey40
 
+
+@info "\tVisualizing South Korea Case Study..."
 begin 
 
 f = Figure(size=(1100, 700))
@@ -302,8 +301,6 @@ end
 save("plots/korea.png", f)
 
 
-
-
 # ------------------------------------------------------------------------------------
 # Make South Korea component of sampling sites figure for box  
 # ------------------------------------------------------------------------------------
@@ -319,15 +316,12 @@ node_idx = [3,5,15]
 nodes = bon.nodes[node_idx]
 get_bbox_of_node.(nodes)
 
-using JSON
 
 function parse_cities_json(path)
     cities_json = open(path, "r") do f
         return JSON.parse(f)
     end
     
-    dict = Dict()
-
     return [
         Dict(
             :lat => e["lat"],
@@ -376,6 +370,8 @@ end
 
 markercols = [colorant"#5390ffff", colorant"#53b37d", colorant"#996bbe"]
 
+
+@info "\tVisualizing South Korea sites for Box 3 Figure..."
 begin 
     f = Figure(size=(700,900))
     ax = Axis(f[1,1], aspect=DataAspect(), xgridvisible=false, ygridvisible=false)

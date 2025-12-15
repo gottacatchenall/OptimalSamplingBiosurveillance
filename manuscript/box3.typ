@@ -17,10 +17,10 @@
   For example, @box-figure shows three selected sampling sites for the second case study on South Korea, with the satellite imagery corresponding to the cell in the priority map that was selected. As the original climate layers have pixels that are approximately 1 $"km"^2$, there is considerable heterogeneity within these pixels. Experts on particular taxa should assess the scope of the local region near each sampling point, and use it to guide the practical logistics of where effort (e.g. traps) are most likely to result in useful information.
 
   Beyond just the spatial scale at which recommendations are made, temporal variation in both prevalence and host occurrence is a well-known driver of disease dynamics, often driven by environmental variation tied to seasonality 
-  @Altizer2004 @Cosgrove2008. Factors like migration and birth rates can affect these within-year cycles @vanDijk2014. Between-year fluctuations, particularly in rodents, are both dramatic and can also counter-intuitively inverse effect on populations’ prevalence @Davis2005. Here, we do not consider temporal variation in host abundances in our sampling recommendation protocol, since to do so would require orders of magnitude more data than we consider available, and would likely require the use of a different class of models/approaches. 
+  @Altizer2004SeasonalDynamics @Cosgrove2008SeasonalVariation. Factors like migration and birth rates can affect these within-year cycles @vanDijk2014JuvenilesMigrants. Between-year fluctuations, particularly in rodents, are both dramatic and can also counter-intuitively inverse effect on populations’ prevalence @Davis2005FluctuatingRodent. Here, we do not consider temporal variation in host abundances in our sampling recommendation protocol, since to do so would require orders of magnitude more data than we consider available, and would likely require the use of a different class of models/approaches. 
 
   #figure(
-  image("../plots/annotated_sites.png", width: 200pt),
+  image("../plots/annotated_sites.png", width: 310pt),
   caption: [Three selected sites for the second case study (colored markers, left) overlayed on a map of South Korea with the 10 most populous cities shown in dark grey dots, and the major highway network shown in light grey (to get a sense of the accessibility of these sites). Right: Satellite imagery, derived from OpenStreetMap, for each site.]
 ) <box-figure>
 
