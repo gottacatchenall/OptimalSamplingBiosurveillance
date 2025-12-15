@@ -1,4 +1,4 @@
-# Optimal Sampling for Biosurveillance Workshop
+# Optimal Sampling for Biosurveillance
 
 This repository contains code associated with the manuscript [_A protocol for biodiversity-informed wildlife disease surveillance_ (Catchen et al. 2025)](http://dx.doi.org/10.32942/X21D36)
 
@@ -66,3 +66,5 @@ to convert to GeoJSON.
 - `korea_cities.json`: City locations for the Figure in Box 3
 
 
+## `./osm`:
+- `osm_viz.py`: A python script to obtain OpenStreetMap data for the sampling locations, for use in making the Box 3 figure.
