@@ -1,6 +1,6 @@
 # Optimal Sampling for Biosurveillance
 
-This repository contains code associated with the manuscript [_A protocol for biodiversity-informed wildlife disease surveillance_ (Catchen et al. 2025)](http://dx.doi.org/10.32942/X21D36)
+This repository contains code associated with the manuscript _A protocol for biodiversity-informed wildlife disease surveillance_ 
 
 # Running the Code
 
@@ -13,6 +13,10 @@ using Pkg
 Pkg.activate(".")
 Pkg.instantiate()
 ```
+
+Before running all analysis, make sure to follow the instructions in the below section
+(Obtaining South Korea highway data), to ensure the visualization in Box 3 can ve built
+properly.
 
 All analysis can then be run with `julia --project=. main.jl`
 
