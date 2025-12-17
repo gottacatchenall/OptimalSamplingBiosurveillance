@@ -33,8 +33,7 @@ india_polygon = india_polygon - arunuachal_pradesh_polygon
 
 
 
-# Remove contested areas from India polygon
-
+# Remove contested are
 kashmir_polygon = india_polygon[2]
 arunuachal_pradesh_polygon = india_polygon[5]
 india_polygon = india_polygon - kashmir_polygon - arunuachal_pradesh_polygon
@@ -42,6 +41,17 @@ india_polygon = india_polygon - kashmir_polygon - arunuachal_pradesh_polygon
 # Get polygons with dashes for contested regions
 kashmir_dashes = add_dashes(kashmir_polygon)
 ap_dashes = add_dashes(arunuachal_pradesh_polygon)
+
+
+sdms = read_sdms(joinpath("artifacts", "India"))
+
+# Species to use
+species = ["Rattus rattus", "Suncus murinus", "Hystrix indica"]
+
+# Get uncertainties for each species
+uncs = [sdms[s][:uncertainty] for s in species]
+richness = [sdms[s][:prediction] for s in species]
+
 
 
 const r1 = [0, 0]
@@ -141,6 +151,12 @@ disputed_dashes_args = (
     strokecolor=:grey30
 )
 
+ax_args = (
+    xgridvisible=false,
+    ygridvisible=false,
+    aspect=DataAspect()
+)
+
 
 m, M = extrema(sensitivity_df.mae)
 relative_MAE = (sensitivity_df.mae .- m) ./ (M - m)
@@ -160,16 +176,14 @@ begin
     ax1 = Axis(
         gright[1,1];
         backgroundcolor=(:red, 0.25),
-        aspect=DataAspect()
-        #ax_args...
+        ax_args...
     )
     limits!(ax1, bbox...)
 
     ax2 = Axis(
         gright[2,1];
         backgroundcolor=(:green, 0.25),
-        aspect=DataAspect()
-        #ax_args...
+        ax_args...
     )
     limits!(ax2, bbox...)
 
@@ -177,8 +191,7 @@ begin
     ax3 = Axis(
         gright[3,1];
         backgroundcolor=(:blue, 0.2),
-        aspect=DataAspect()
-        #ax_args...
+        ax_args...
     )
     limits!(ax3, bbox...)
 

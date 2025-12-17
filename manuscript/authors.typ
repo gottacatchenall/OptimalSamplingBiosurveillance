@@ -58,7 +58,7 @@
 #let institutions = (
   "UdeM": "Université de Montréal, Département de sciences biologiques, Montréal, QC, Canada",
   "Carleton": "Carleton University, Ottawa, ON, Canada",
-  "Yale": "Yale University School of Public Health, Department. of Epidemiology of Microbial Diseases, New Haven, CT, USA",
+  "Yale": "Yale University School of Public Health, Department of Epidemiology of Microbial Diseases, New Haven, CT, USA",
   "UCL": "University College London, Department of Genetics, Evolution and Environment, London, UK",
   "Cornell": "Cornell University, Ithaca, NY, USA",
   "PennState": "Pennsylvania State University, Department of Anthropology & Center for Infectious Disease Dynamics, State College, PA, USA",
