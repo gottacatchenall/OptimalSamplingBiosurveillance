@@ -101,7 +101,7 @@ This still leaves the task of assigning species weights. If no information is av
 
 
 #figure(
-  image("../plots/concept.svg", width: 110%),
+  image("../../plots/concept.svg", width: 110%),
   caption: [*(a)*: The conceptual framework for optimizing sampling priority using host species distribution models, and pathogen prevalence data if available (left). *(b)*: The type of sampling that is most informative (pathogen prevalence vs. host occurrence), depending on a location's level of biodiversity dose (weighted host habitat suitability) and uncertainty about that dose. 
 ]
 ) <concept>
@@ -185,7 +185,7 @@ Today we know that Lassa is confined to Western Africa, but this case study serv
 
 
 #figure(
-  image("../plots/india.png", width: 110%),
+  image("../../plots/india.png", width: 110%),
   caption: [The case study for India. (a) Biodiversity dose + uncertainty bivariate plot. (b) Number of hosts in prevalence-regime (top 50% of habitat suitability for that species) vs. discovery (top 50% of uncertainty for that species), (c) Sampling priority + BON. X’s are historical sampling locations from #cite(<Rodrigues1978SerologicalSurvey>, form: "prose") (d) The largest host contributor to priority.]
 ) <india>
 
@@ -200,7 +200,7 @@ Prevalence across the extent is estimated using Gaussian Process regression (als
 This case study demonstrates how we can integrate host SDMs with existing prevalence information to design sampling strategies and split geographic space into discrete regions where each type of sampling (occurrence and prevalence) should take place.
 
 #figure(
-  image("../plots/korea.png", width: 120%),
+  image("../../plots/korea.png", width: 120%),
   caption: [The case study for South Korea. (*A*): Bivariate plot of dose (increasing green) and dose uncertainty (increasing blue). (*B*): Bivariate plot of dose (increasing green) and prevalence uncertainty (increasing orange; measured as the sum of estimated variance from kriging across each host-virus pair). (*C*): The spatial strata for which occurrence, prevalence, and both forms of sampling should occur (see main text for how these are computed). (*D*) The priority scores for regions where discovery sampling is a priority (increasingly blue) and prevalence sampling is the priority (increasingly purple) in their respective strata. (*E*) The total priority map with sites selected using Balanced Acceptance Sampling. The marker shape of each site corresponds to the type of sampling that should occur there, based on the stratum in (C) that each point falls within.]
 ) <korea>
 

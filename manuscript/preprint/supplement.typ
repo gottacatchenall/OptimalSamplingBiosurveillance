@@ -36,7 +36,7 @@ As an example of weight sensitivity analysis, in @sensitivity we apply random no
 
 
 #figure(
-  image("../plots/sensitivity.png", width: 110%),
+  image("../../plots/sensitivity.png", width: 110%),
   caption: [The sensitivity of the overall priority map to adjusted weights. The color of each point on the left ternary diagram is proportional to the sensitivity of each point to nudging weights (see main text). Each panel on the right corresponds to the overall priority map at weight values in the corresponding color on the left.]
 ) <sensitivity>
 
