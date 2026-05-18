@@ -60,8 +60,9 @@ function add_colorbar!(location, colorscheme; titlesize=12, titlealign=:left, ha
         title=title,
         titlesize = titlesize,
         titlefont=:regular,
-        titlealign=titlealign
+        titlealign=titlealign,
     )
+    hidespines!(cbar_axis)
     cmap = [get(colorscheme, i) for i in 0:0.025:1]
     X = hcat(0:0.025:1)
     heatmap!(cbar_axis, X, colormap=cmap)
