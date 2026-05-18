@@ -19,7 +19,7 @@
 
 #set heading(numbering: "1.1")
 #show heading: set block(below: 1em)
-vz#show "TK": text(weight: "bold", fill: rgb("#e08619"))[TK]
+#show "TK": text(weight: "bold", fill: rgb("#e08619"))[TK]
 #show "REF": text(weight: "bold", fill: rgb("#c6218c"))[REF]
 
 
