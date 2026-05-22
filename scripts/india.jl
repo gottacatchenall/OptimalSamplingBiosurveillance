@@ -126,12 +126,15 @@ bivar2, colormatrix2 = get_bivariate(
     high2=colorant"#78c6c7",
 )
 
+tilt(x, α) = exp.(α .* x)
+
+
 # Sample a BON
 Random.seed!(42)
 bon = BiodiversityObservationNetworks.sample(
     BalancedAcceptance(), 
     priority, 
-    inclusion=BiodiversityObservationNetworks.tilt(priority, 5)
+    inclusion=tilt(priority, 5)
 )
 
 
@@ -243,7 +246,7 @@ begin
     poly!(ax_priority, background_land, color=background_land_color)
     lines!(ax_priority, background_land, color=:grey80)
     heatmap!(ax_priority, priority, colormap=:lipari)
-    scatter!(ax_priority, [n for n in bon], color=colorant"#fff", strokecolor=:black, strokewidth=1)
+    scatter!(ax_priority, bon.coordinates, color=colorant"#fff", strokecolor=:black, strokewidth=1)
     scatter!(ax_priority, historical_coords, color=colorant"#9effff", marker=:x, markersize=12, strokecolor=:black, strokewidth=1)
     poly!(ax_priority, kashmir_polygon; disputed_args...)
     poly!.(ax_priority, kashmir_dashes; disputed_dashes_args...)

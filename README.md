@@ -25,15 +25,16 @@ All analysis can then be run with `julia --project=. main.jl`
 For the figure in Box 3, the South Korea highway network data is too large to store in the repo. It can be obtained via running to query OpenStreetMap
 
 ```
-curl -X POST https://overpass-api.de/api/interpreter -d '
-    [out:json][timeout:180];
-    area["ISO3166-1"="KR"][admin_level=2]->.sk;
-    (
-    way(area.sk)["highway"~"^(motorway|trunk|primary)$"];
-    way(area.sk)["highway"~"^(motorway_link|trunk_link|primary_link)$"];
-    );
-    out geom;
-    ' > ./data/south_korea_major_highways.json
+curl -X POST https://overpass.kumi.systems/api/interpreter \
+        --data-urlencode 'data=
+          [out:json][timeout:180];
+          area["ISO3166-1"="KR"][admin_level=2]->.sk;
+          (
+          way(area.sk)["highway"~"^(motorway|trunk|primary)$"];
+          way(area.sk)["highway"~"^(motorway_link|trunk_link|primary_link)$"];
+          );
+          out geom;
+        ' > ./data/south_korea_major_highways.json
 ```
 
 and then running 

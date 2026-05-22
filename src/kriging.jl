@@ -3,6 +3,10 @@ using SpeciesDistributionToolkit
 using CairoMakie
 using GaussianProcesses
 using Optim
+import LinearAlgebra
+
+# GaussianProcesses and PDMats both define ldiv! in a way that is ambiguous for dispatch
+LinearAlgebra.ldiv!(cK::GaussianProcesses.PDMats.PDMat, x::AbstractVecOrMat) = LinearAlgebra.ldiv!(cK.chol, x)
 
 const SDT = SpeciesDistributionToolkit
 

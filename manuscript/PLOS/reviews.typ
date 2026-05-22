@@ -28,7 +28,7 @@
 I have all of my comments on the attached PDF. But to summarize the strengths of the manuscript:
 
 - I appreciate the idea of identifying sampling priorities while explicitly incorporating spatial uncertainty. Overall, I see this as a promising step forward in environmental risk mapping.
-- While species weighting always involves assumptions and caveats, I applaud the authors for trying to bring more nuance to weighing decisions (eg serology vs PCR). In many modeling frameworks, weighting decisions are left to the modeler’s discretion and can feel somewhat ad hoc. The ePort to provide a more structured approach is commendable.
+- While species weighting always involves assumptions and caveats, I applaud the authors for trying to bring more nuance to weighing decisions (eg serology vs PCR). In many modeling frameworks, weighting decisions are left to the modeler’s discretion and can feel somewhat ad hoc. The effort to provide a more structured approach is commendable.
 - I found the distinction between sampling location and type of data sampled to be particularly insightful
 - The conceptual distinction between hazard and risk is also useful and clearly framed
 
@@ -41,7 +41,7 @@ unrelated. However, I am primarily an R user, so this could reflect my own skill
 than an issue with the repository itself. If may be helpful for the authors to ask another
 primarily R user to test the workflow on a different machine.
 
-#response[*TODO* BAR]
+#response[*TODO* BAR. We believe that this is related to an update that occurred from Julia 1.11 (which is where the original code was developed) and Julia 1.12. ]
 
 == Major Comments (General Feedback)
 
@@ -139,7 +139,7 @@ paragraph in particular could benefit from additional development.
 
 - Lines 77-80: The sentence could be simplified. For example, “the type of data useful for a particularly context depends on existing data and local drivers of pathogen prevalence. For example, historic occurrence records can contextualize contemporary species records, while pathogen prevalence may be informed by the proportion of susceptible hosts”
 
-- Lines 80-83: The seems to be a central argument of the paper but becomes lost in long sentences. Consider simplifying the logic around trade-oNs between occurrence data and pathogen prevalence data.
+- Lines 80-83: The seems to be a central argument of the paper but becomes lost in long sentences. Consider simplifying the logic around trade-offs between occurrence data and pathogen prevalence data.
 
 - Line 97: Consider replacing “conceptualizing” with “identifying” or “estimating”
 
@@ -180,8 +180,7 @@ paragraph in particular could benefit from additional development.
 
 - Line 258: Consider removing “(which is maintained by the first author)” or moving that detail to the Data Availability section
 
-- Lines 300-303: As a preference, it might be helpful to present the more data-rich case study
-(south korea) first
+- Lines 300-303: As a preference, it might be helpful to present the more data-rich case study (south korea) first
 
 - Lines 308-309: if a package or specific download citation was used to retrieve GBIF data, it
 should be cited (often GBIF gives you a specific citation based on the occurrence data
@@ -326,7 +325,9 @@ L481-483: The way I thought about this was in terms of additive probabilities. B
   ]
 
   #response[
-    The maps used in Figures 2, 3, and 4, and the maps of Korea for Supp. Fig 1, all use GADM, which explicitly states that publishing them under CC-BY is allowed #text(fill: blue)[#link("https://gadm.org/license.html", "on their site.")].
+    The maps used in Figures 2, 3, and 4, and the maps of Korea for Supp. Fig 1, all use GADM, which explicitly states that publishing them under CC-BY is allowed #text(fill: blue)[#link("https://gadm.org/license.html", "on their site")].
+
+    We have replaced the zoomed-in maps of selected sites in Figure 4 with maps from OpenStreetMap, which are 
 
     TK : I am adding the zoom in land cover maps via sentinel imagery
   ]

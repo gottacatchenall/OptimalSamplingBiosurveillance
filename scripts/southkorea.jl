@@ -5,6 +5,7 @@ using Random
 using JSON
 const BONs = BiodiversityObservationNetworks
 
+Random.seed!(123)
 
 # Load Dependencies 
 include(joinpath("..", "src", "sdms.jl"))
@@ -36,7 +37,13 @@ mask!(environmental_layers, south_korea_polygon)
 
 # Fit and Write SDMs
 @info "\tFitting SDMs for South Korea Case Study..."
-sdms = Dict([s=>fit_sdm(occurrence_by_species[s], environmental_layers, pseudoabsence_buffer_distance=8.) for s in hosts])
+sdms = Dict([
+    s=> fit_sdm(
+        occurrence_by_species[s], 
+        environmental_layers, 
+        pseudoabsence_buffer_distance=8.
+    ) for s in hosts]
+)
 write_sdm_artifacts(joinpath("artifacts", "SouthKorea"), sdms)
 
 # Load SDMs (if already fit, previous 2 lines can be skipped)
@@ -184,11 +191,13 @@ w_prevalence = 0.5
 
 total_priority = get_total_priority(w_prevalence, within_prev_priority, within_occ_priority)
 
+tilt(x, α) = exp.(α .* x)
+
 Random.seed!(420)
 bon = BiodiversityObservationNetworks.sample(
     BalancedAcceptance(), 
     total_priority, 
-    inclusion=BiodiversityObservationNetworks.tilt(rescale(total_priority, (0,1)), 2)
+    inclusion=tilt(rescale(total_priority, (0,1)), 2)
 )
 
 
@@ -199,8 +208,8 @@ bon = BiodiversityObservationNetworks.sample(
 markers = [:utriangle, :circle, :x,]
 markersizes = [18, 15, 20]
 
-marker = [markers[strata[n...]]  for n in bon]
-markersize = [markersizes[strata[n...]]  for n in bon]
+marker = [markers[strata[n]]  for n in bon]
+markersize = [markersizes[strata[n]]  for n in bon]
 arrowcolor = :grey40
 
 
@@ -284,7 +293,7 @@ text!(ax, 129.4, 38.1, text="E", fontsize=32, font=:bold, color=:grey20)
 heatmap!(ax, environmental_layers[1], colormap=[Makie.ColorSchemes.lipari[1]])
 heatmap!(ax, total_priority, colormap=:lipari)
 poly!(ax, north_korea_polygon, color=:grey85, strokewidth=2, strokecolor=:grey40)
-scatter!(ax, [n for n in bon], color=colorant"#fff", strokecolor=:black, strokewidth=2, marker=marker, markersize=markersize)
+scatter!(ax, bon.coordinates, color=colorant"#fff", strokecolor=:black, strokewidth=2, marker=marker, markersize=markersize)
 add_colorbar!(g_top_right[1,1], Makie.ColorSchemes.lipari, title="Total Priority", titlesize=15, height=0.023, width=0.3, halign=0.9, valign=0.22, titlealign=:right)
 leg = axislegend(
     ax,
@@ -300,7 +309,6 @@ end
 
 save("plots/korea.png", f)
 
-
 # ------------------------------------------------------------------------------------
 # Make South Korea component of sampling sites figure for box  
 # ------------------------------------------------------------------------------------
@@ -312,10 +320,13 @@ function get_bbox_of_node(node)
     (Es[x], Es[x+1], Ns[y], Ns[y+1])
 end
 
-node_idx = [3,5,15]
-nodes = bon.nodes[node_idx]
-get_bbox_of_node.(nodes)
+#node_idx = [3,5,15]
+node_idx = [10, 29, 32]
+nodes = bon.coordinates[:,node_idx]
 
+for i in node_idx
+    @info i,marker[i], get_bbox_of_node(bon.coordinates[:,i])
+end
 
 function parse_cities_json(path)
     cities_json = open(path, "r") do f
@@ -341,21 +352,22 @@ big_cities = filter(x->x[:population] >= min_pop , cities)
 
 #=
     This file is obtained via: 
-
+    
     curl -X POST https://overpass-api.de/api/interpreter -d '
-    [out:json][timeout:180];
-    area["ISO3166-1"="KR"][admin_level=2]->.sk;
-    (
-    way(area.sk)["highway"~"^(motorway|trunk|primary)$"];
-    way(area.sk)["highway"~"^(motorway_link|trunk_link|primary_link)$"];
-    );
-    out geom;
-    ' > south_korea_major_highways.json
+        [out:json][timeout:180];
+        area["ISO3166-1"="KR"][admin_level=2]->.sk;
+        (
+        way(area.sk)["highway"~"^(motorway|trunk|primary)$"];
+        way(area.sk)["highway"~"^(motorway_link|trunk_link|primary_link)$"];
+        );
+        out geom;
+        ' > ./data/south_korea_major_highways.json
 
     and then running 
 
-    `osmtogeojson south_korea_major_highways.json > south_korea_major_highways.geojson`.
+    `osmtogeojson data/south_korea_major_highways.json > data/south_korea_major_highways.geojson`.
 =#
+
 GJ = SDT.GeoJSON
 fc = GJ.read(joinpath("data", "south_korea_major_highways.geojson"))
 
@@ -401,3 +413,14 @@ begin
 end 
 
 save("plots/korea_selected_points.png", f)
+
+[10, 29, 32]
+
+f = Figure()
+ax= Axis(f[1,1], aspect=DataAspect())
+heatmap!(ax, environmental_layers[1], colormap=[:grey90])
+scatter!(ax, bon.coordinates, color=colorant"#fff", strokecolor=:black, strokewidth=1, marker=marker, markersize=8)
+for i in 1:size(bon.coordinates, 2)
+    text!(ax, bon.coordinates[1,i], bon.coordinates[2,i], text="$i")
+end 
+f

@@ -18,68 +18,24 @@ def create_map(bbox, zoom):
     plt.tight_layout()
     return fig, ax
 
-# circle (bon idx = 3)
-bbox = (126.8206932172, 126.8290265505, 36.4373606054, 36.4456939387)
+
+# circle (bon idx = 10)
+bbox = (126.6623598845, 126.67069321780002, 36.77069393740001, 36.77902727070001)
 fig, ax = create_map(bbox, 17)
 plt.savefig('plots/korea_circle_zoom.svg', dpi=300, bbox_inches='tight')
 plt.show()
 
-# triangle (bon idx = 5)
-bbox =  (128.05402654559998, 128.0623598789, 35.8623606077, 35.870693941)
+# triangle (bon idx = 32)
+bbox =  (128.52069321040003, 128.5290265437, 36.337360605800015, 36.34569393910001)
 fig, ax = create_map(bbox, 17)
 plt.savefig('plots/korea_triangle_zoom.svg', dpi=300, bbox_inches='tight')
 plt.show()
 
-# x_zoom (bon idx = 15)
-bbox =  (126.5706932182, 126.5790265515, 36.904027270200004, 36.912360603500005)
+# x_zoom (bon idx = 29)
+bbox =  (127.37069321500002, 127.3790265483, 36.81236060390001, 36.82069393720001)
 fig, ax = create_map(bbox, 17)
 plt.savefig('plots/korea_x_zoom.svg', dpi=300, bbox_inches='tight')
 plt.show()
 
-
-
-
-# Okay we're getting sentinel 2 with the planetary computer and overlaying OSM. 
-
-import pystac_client
-import planetary_computer
-import rasterio
-import rioxarray
-import xarray
-import stackstac
-
-# Open the STAC API
-catalog = pystac_client.Client.open(
-    "https://planetarycomputer.microsoft.com/api/stac/v1",
-    modifier=planetary_computer.sign_inplace
-)
-
-bbox = (126.8206932172, 36.4373606054, 126.8290265505, 36.4456939387)
-
-# Search for Sentinel-2 Level-2A data
-search = catalog.search(
-    collections=["sentinel-2-l2a"],
-    bbox=bbox,
-    datetime="2023-06-01/2023-09-30",
-    query={"eo:cloud_cover": {"lt": 10}}
-)
-
-first_item = next(search.items())
-
-
-def read_band(asset, band_id, crs = 4326):
-    with rasterio.open(asset[band_id].href) as src:
-        with WarpedVRT(src, crs=crs) as vrt:
-            dst_window = vrt.window(*bbox)
-            data = vrt.read(window=dst_window)
-            return data
-        
-
-stack = stackstac.stack(first_item, epsg=4326).sel(band=["B04", "B03", "B02"])
-
-xr_stack = stackstac.stack(first_item, epsg=4326, bounds_latlon=bbox)
-
-
-a = xr_stack.sel(band="B04").compute()
 
     
