@@ -50,7 +50,7 @@ write_sdm_artifacts(joinpath("artifacts", "SouthKorea"), sdms)
 sdms = read_sdms(joinpath("artifacts", "SouthKorea"))
 
 # Number of breaks in bivariate plots
-nbreaks = 4
+nbreaks = 3
 
 # Bounding box for plots
 bounds = (125.8, 129.8, 33., 38.6)

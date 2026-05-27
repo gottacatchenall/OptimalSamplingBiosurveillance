@@ -111,7 +111,7 @@ end
 
 
 # Create dose vs. uncertainty bivariate map
-nbreaks1 = 4
+nbreaks1 = 3
 bivar, colormatrix = get_bivariate(weighted_dose, weighted_uncertainty; nbreaks=nbreaks1)
 
 
@@ -299,5 +299,3 @@ begin
 end
 
 save(joinpath("plots", "india.png"), fig)
-
-

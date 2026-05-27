@@ -32,7 +32,7 @@ I have all of my comments on the attached PDF. But to summarize the strengths of
 - I found the distinction between sampling location and type of data sampled to be particularly insightful
 - The conceptual distinction between hazard and risk is also useful and clearly framed
 
-#response[We thank the reviewer for their kind words summarizing the manuscript's strengths.]
+#response[We thank the reviewer for their kind words summarizing the manuscript's strengths, and their thorough comments and suggestions in response to the manuscript, which we believe have strengthened the manuscript considerably. ]
 
 I was able to clone the repository and run part of the code. Without troubleshooting or
 actively fixing errors, I was able to run the India case study but not the South Korea case
@@ -53,9 +53,38 @@ Because the manuscript does not sufficiently situate itself within the broader l
 
 I recognize that several authors on this paper have made important contribution to the biodiversity-disease space (and I enjoy these papers!). However, this is a large and active field with many research groups working on related problems. I would encourage the authors to broaden the citation base so that the manuscript better reflects that broader community. A brief scan of the reference list suggests a substantial number of citations include members of the author team (even with the “et al” truncation). 
 
-#response[TODO we have added additional citations from]
+#response[TK we have added numerous additional citations throughout the manuscript:
+
+We have restructured part of the introduction to introduce both existing biosurveillance and long-term biodiversity monitoring program, and highlighted that the novel perspective introduced here is the potential to integrate these monitoring systems. 
+
+ @Luis2013ComparisonBats @Murray2015GlobalBiogeography @Olival2017HostViral @Murray2018PathogeographyLeveraging.
+
+
+Some focus on existing zoonotic surveillance programs:
+
+@Aguiar2025PreventingZoonotic
+@OShea2017DigitalDisease
+@Halliday2012BringingTogether
+@Sharan2023SurveillanceResponse
+@Clow2019FrameworkAdaptive
+
+Some on data standardization:
+
+@Shanbehzadeh2022DesigningStandardized
+@Schwantes2025MinimumData
+
+]
 
 Similarly, the manuscript highlights BON as the primary monitoring framework, despite the existence of many other long-term biodiversity monitoring networks. While BON is an important example, it would be more appropriate to frame it as one of several efforts working toward standardized biodiversity monitoring. This work builds on substantial existing foundation, and acknowledging the broader literature would strengthen the manuscript.
+
+#response[
+  TK we have expanded on this to cover various long-term biodiversity monitoring projects (BBS, LTER, NEON, TERN), the EBV and EESV frameworks and the GBF, and how it can supplement disease surveillance (TK CITE FRANCIS).
+
+  TK we have also cited additional work of zoonotic disease surveillance programs:
+
+  GOARN, GEIS, PREDICT, GLEWS+
+
+]
 
 == Specific Comments
 
@@ -65,11 +94,13 @@ Similarly, the manuscript highlights BON as the primary monitoring framework, de
 
 More consideration could be given to citation choices in the opening paragraph of the Introduction. While the cited research groups have contributed significantly to this field, it would be beneficial to diversify the research groups cited in the opening paragraph, given the breadth of work in biodiversity-disease research.
 
+#response[We appreciate the comments and have added citations to the following papers to the introductory paragraph to widen the citation-base: @Plowright2017PathwaysZoonotic @Eby2023PathogenSpillover @Johnson2020GlobalShifts. TK MORE]
+
 ==== Comment 2: 
 
 After reading lines 49-57, I wondered who would realistically fund the surveillance and standardization systems being proposed. Are these cost estimates or funding mechanisms that could support implementation of the monitoring protocol suggested here? While these logistical considerations may be too detailed for the Introduction, I hope the Discussion includes a more substantial consideration of the trade- offs between ideal surveillance systems and what is practical to implement. Treaties and global initiatives may call for these systems, but the protocol proposed here implies substantial additional effort (at the individual and institutional levels), and it would strengthen the paper to acknowledge the logistical challenges users may face.
 
-#response[TODO: we add a paragraph in the discussion on this and relate to financing GBiOS and GBF stuff]
+#response[TK: we add a paragraph in the discussion on this and relate to financing GBiOS and GBF stuff]
 
 ==== Comment 3: 
 
@@ -81,7 +112,7 @@ established networks including US LTER, US NEON, North American Breeding Bird Su
 Highlighting similar networks would help acknowledge the substantial investments that
 have already been made in biodiversity monitoring and clarify that the authors’ contribution extends this work through a disease-ecology lens.
 
-#response[TODO: we acknowledge much work has been done outside the BON perspective and add this to the intro and relevant places]
+#response[TK: we acknowledge much work has been done outside the BON perspective and add this to the intro and relevant places]
 
 === _Methods/Conceptual Framework_
 
@@ -92,7 +123,12 @@ been attempted in other disease systems (e.g., bird communities in the West Nile
 system or mammal communities in the Lyme disease system). In many cases, species
 weighting decisions are made somewhat ad hoc by modelers. 
 
-#response[TODO: we thank the reviewer for pointing us to this work and we have added reference to this in ...]
+#response[TK: we thank the reviewer for pointing us to this work and we have added reference to this in ...
+
+
+@Kain2019PredictingWest
+@Guillot2024SpatialMulticriteria
+]
 
 I appreciated the ideas introduced in lines 181-188. After reading these lines, I felt that a deeper methodological discussion would be valuable (separate from Box 2 or the supplement example of weight sensitivity analysis). Because this manuscript is presented as a protocol paper, I would welcome a discussion of how species weighting could be implemented in practice, including potential pitfalls and non-negotiable assumptions.
 
@@ -155,7 +191,11 @@ paragraph in particular could benefit from additional development.
 
 - Line 123: Some more recent literature could be cited here. Additionally, because community composition does not always influence pathogen dynamics, the statement may need to be softened or balanced with additional citations.
 
+#response[We have added citations from #cite(<Johnson2013BiodiversityDecreases>, form: "prose")#cite(<Civitello2015BiodiversityInhibits>, form: "prose"), #cite(<Gibb2020ZoonoticHost>, form: "prose") and #cite(<Keesing2021ImpactsBiodiversity>, form: "prose") and adjusted the language to say "host communities _can be_ a central determinant of pathogen dynamics..."]
+
 - Lines 128-129: I particularly enjoyed this sentence
+
+#response[We thank the reviewer for their comment.]
 
 - Lines 130-131: Because this introduces the methods, consider breaking it into shorter sentences for clarity
 
@@ -164,13 +204,24 @@ paragraph in particular could benefit from additional development.
 - Lines 144-145: “Quantitative” may be redundant, consider removing or replacing with
 “statistical”
 
+#response[We have implemented this change.]
+
 - Line 159: Adding a concrete example (e.g., overlapping susceptible host populations) may help
+
+#response[We have added an example of red deer as a "bridge host" of bovine tuberculosis, citing @Nugent2011MaintenanceSpillover, to emphasize this point.]
 
 - Lines 161-163: Pathogen extent & host susceptibility weighting seem conceptually distinct and could be clarified
 
+#response[We have restructured thsi sentence for clarity.]
+
 - Line 168: simplify to “both across space and in the type of data collected”
 - Line 169: Replace “this” with “our protocol”
+
+#response[We have implemented this change.]
+
 - Lines 184-185: I liked the idea of weighting host competency based on testing protocol (eg serology vs PCR)
+
+#response[We thank the reviewer for their comment, and have added additional detail here in response to a comment from the other reviewer.]
 
 - Line 200: refer simply to figure 1 if panel order is not sequential
 
@@ -275,6 +326,8 @@ L359: What is the justification for including Imjin virus here? Is there any evi
 
 L363-366: If the authors were performing this case study as a real analysis or sample planning exercise, what sort of sensitivity analyses would the authors suggest running to incorporate additional known hosts and other potential hosts with unknown status?
 
+#response[TK: integrated this with comments on the other form of sensitivity (i.e. adding/removing hosts and looking at sensitivity)]
+
 L384: Similar comment as above, how was the tilting value alpha chosen for this case study?
 
 L481-483: The way I thought about this was in terms of additive probabilities. Because the presence of species are not mutually exclusive, their additive probabilities would be P(A or B) = P(A) + P(B) – P(A and B). However, since P(A and B) requires a joint SDM to estimate, it does not get subtracted off in the probability estimate and therefore we get an overestimate of sympatry between two species. And obviously this gets compounded when you stack an even larger number of potential sympatric species.
@@ -332,3 +385,6 @@ L481-483: The way I thought about this was in terms of additive probabilities. B
     TK : I am adding the zoom in land cover maps via sentinel imagery
   ]
 ]
+
+
+#bibliography("refs.bib", style: "springer-basic-author-date")
