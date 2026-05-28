@@ -142,7 +142,7 @@ across both case studies. At present, they read somewhat as though there were wr
 different authors. I particularly appreciated how Case Study 1 clearly walked through how
 dose and uncertainty could be interpreted across regions.
 
-#response[TODO: we have made them read more like the same person.]
+#response[TK: we have made them read more like the same person.]
 
 === _Discussion_
 
@@ -161,33 +161,63 @@ paragraph in particular could benefit from additional development.
 
 - Line 31: Add a space after punctuation before “We”.
 
+#response[We have implemented this change.]
+
 - Line 37: A citation could be included here. There are people in the wildlife-disease monitoring space that have tried to integrate biodiversity data to guide sampling efforts (e.g., Raina Plowright, Christine Johnson, Cara Brooks, etc).
+
+#response[We have added citations to @Plowright2017PathwaysZoonotic @Johnson2020GlobalShifts and @Eby2023PathogenSpillover after the first clause of this sentence.]
 
 - Line 39: Biodiversity increases can also influence pathogen presence. I would simplify this sentence to refer to biodiversity itself and changes in biodiversity indices.
 
+#response[We have adjusted the phrasing to refer to both the amount of biodiversity and its change.]
+
 - Lines 45-47: Modifying geographic ranges does not always increase cross-species transmission, it can also reduce species ranges or abundances. Consider changing to“potentially leading to increased cross-species transmission”.
+
+#response[We have implemented this change.]
 
 - Lines 59-61: If a distinction is being made between biodiversity surveillance and host ecology, it may help to define these terms earlier (e.g., biodiversity surveillance as species presence records, host ecology as relationships among species and landscapes).
 
+#response[We have refactored this sentence to say "wildlife disease surveillance" instead of "biodiversity surveillance", as that aligns more with the original intended meaning.]
+
 - Lines 63-64: There has been substantial work establishing biodiversity monitoring systems. I encourage the authors to engage more broadly with the literature beyond the current citation network.
+
+#response[We have added additional discussion of long-term biodiversity monitoring programs, e.g. LTER, NEON, BBS, and TERN.]
 
 - Lines 69-71: Related to earlier comments about BON, I suggest revising to “how a long-term biodiversity network perspective would be implemented within the BON system”
 
+#response[We have refactored this sentence to say "how biosurveillance can be implemented within the BON perspective"]
+
 - Lines 77-80: The sentence could be simplified. For example, “the type of data useful for a particularly context depends on existing data and local drivers of pathogen prevalence. For example, historic occurrence records can contextualize contemporary species records, while pathogen prevalence may be informed by the proportion of susceptible hosts”
+
+#response[We have refactored this and the following sentence for clarity.]
 
 - Lines 80-83: The seems to be a central argument of the paper but becomes lost in long sentences. Consider simplifying the logic around trade-offs between occurrence data and pathogen prevalence data.
 
+#response[We have refactored this sentence for clarity.]
+
 - Line 97: Consider replacing “conceptualizing” with “identifying” or “estimating”
+
+#response[We have changed "conceptualizing" to "mitigating" as it aligns closer with our intended meaning.]
 
 - Lines 97-99: “In a state conducive to transmission to humans” feels somewhat redundant. Consider simplifying.
 
+#response[We have removed this clause as transmissability to humans is directly stated in the next clause.]
+
 - Lines 100-101: If discussion local hazard fluctuations, “shifts in host abundance” may be clearer than “host distribution”
+
+#response[We have implemented this change.]
 
 - Lines 106-108: Specify that exposure is not static across space and time
 
+#response[We have stated that these drivers all fluctuate through time.]
+
 - Lines 109-111: To emphasize anthropogenic changes, consider rearranging the sentence to begin with urban encroachment or climate-driven species migration
 
+#response[We have implemented this change.]
+
 - Lines 113-121: While the cited papers are nice and relevant, many originate from the same research group. Including additional perspectives would strengthen the balance of the section.
+
+#response[TK I have to do this still]
 
 - Line 123: Some more recent literature could be cited here. Additionally, because community composition does not always influence pathogen dynamics, the statement may need to be softened or balanced with additional citations.
 
@@ -212,7 +242,7 @@ paragraph in particular could benefit from additional development.
 
 - Lines 161-163: Pathogen extent & host susceptibility weighting seem conceptually distinct and could be clarified
 
-#response[We have restructured thsi sentence for clarity.]
+#response[We have restructured this sentence for clarity.]
 
 - Line 168: simplify to “both across space and in the type of data collected”
 - Line 169: Replace “this” with “our protocol”
@@ -221,48 +251,88 @@ paragraph in particular could benefit from additional development.
 
 - Lines 184-185: I liked the idea of weighting host competency based on testing protocol (eg serology vs PCR)
 
-#response[We thank the reviewer for their comment, and have added additional detail here in response to a comment from the other reviewer.]
+#response[We thank the reviewer for their comment, and have added additional details here in response to a comment from the other reviewer.]
 
 - Line 200: refer simply to figure 1 if panel order is not sequential
 
+#response[We have implemented this change.]
+
 - Line 201-204: These important points might be introduced earlier in the Introduction
+
+#response[We have added a sentence in the introduction discussing how the protocol enables prioritization of the type of data to collect at each site.]
 
 - Lines 216-221: it may be useful to mention that pathogen prevalence and host distribution are often reported at different spatial scales. For example pathogen prevelance may be reported as a lat/lon, but that may represent the centroid of a plot (with unknown size) or could be at the regional administrative level.
 
+#response[We now mention this at the beginning of the subsequent paragraph.]
+
 - Line 258: Consider removing “(which is maintained by the first author)” or moving that detail to the Data Availability section
 
+#response[We have implemented this change.]
+
 - Lines 300-303: As a preference, it might be helpful to present the more data-rich case study (south korea) first
+
+#response[TK we don't do this because...]
 
 - Lines 308-309: if a package or specific download citation was used to retrieve GBIF data, it
 should be cited (often GBIF gives you a specific citation based on the occurrence data
 downloaded)
 
+#response[We have included the GBIF DOIs associated with each study here.]
+
 - Lines 326-331: These sentences could likely be written more concisely
+
+#response[We have refactored these sentences for clarity.]
 
 - Line 340: replace “this” with “the map of India”
 
+#response[We have implemented this change.]
+
 - Lines 340-343: the map is well explained, but a simpler bivariate legend (e.g., 3x3) might help readers quickly interpret patterns. Supplemental figures could provide alternative visualizations (I get that it’s nice to have 50% cutoff for sampling location priority)
+
+#response[We have adjusted the dose/uncertainty bivariate maps for each case study to use a 3x3 format.]
 
 - Lines 343-345: if “predicted suitability” corresponds to dose, consider stating this explicitly
 
+#response[We have explicitly stated this is biodiversity dose for clarity.]
+
 - Lines 347-350: Overlaying the sampling points in teal was very helpful.
+
+#response[We thank the reviewer for their comment.]
 
 - Lines 363-366: it may help to clarify why these particular papers were chosen. Did they only look at your specific host-virus pairs or did they represent certain geographic regions?
 
+#response[We have added that these studies are selected because they are the sources of data in the ArHa database in South Korea with explict prevalence estimates.]
+
 - Lines 407-416: I appreciated that temporal limitations were addressed early in the Discussion
+
+#response[We thank the reviewer for their comment.]
 
 - Lines 429-430: As noted earlier, many long-term monitoring programs already exist. The manuscript could frame these are opportunities to extend biodiversity monitoring toward biosurveillance in a more standardized format.
 
+#response[We have adjusted this sentence to emphasize the protocol enables kickstarting monitoring in the low data context, and integration with existing biodiversity monitoring programs.]
+
+
 - Lines 438-440: I encourage the authors to be cautious with claims that this work represents the “first step” towards biosurveillance. Similar ideas and regional analyses already exist in the literature, even if implemented with different tools or datasets.
+
+#response[We agree with the reviewer and have rephrased this as a necessary next step for integrating biosurveillance with biodiversity monitoring.]
 
 - Line 442: Minor figure design suggestion, aligning the arrows between panels (the tips of arrows directly touch) may improve visual clarity
 
+#response[TK Idk what this means.]
+
 - Line 448: Spell out “and” instead of using “+” . Also include citations for country boundary datasets if applicable.
+
+#response[We have implemented this change.]
 
 - Line 459: Box 1 for SDMs is nicely written and will be easy for people to point trainees in that
 direction for a gentle overview on the method.
 
+#response[We thank the reviewer for their comment.]
+
 - Line 568: Include citations for country boundary datasets if applicable.
+
+#response[We have included that GADM is the source of boundaries in both case study figure captions.]
+
 
 = Reviewer 2
 
