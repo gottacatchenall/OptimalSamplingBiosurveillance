@@ -229,7 +229,12 @@ paragraph in particular could benefit from additional development.
 
 - Lines 130-131: Because this introduces the methods, consider breaking it into shorter sentences for clarity
 
+#response[We have implemented this change.]
+
+
 - Lines 137-138: Clarify that when pathogen prevalence relationships are known but abundance is not, sampling should prioritize host identity.
+
+#response[TK idk what this means, it seems backwards?]
 
 - Lines 144-145: “Quantitative” may be redundant, consider removing or replacing with
 “statistical”
@@ -342,9 +347,11 @@ Developing surveillance systems for wildlife pathogens continues to be a tricky 
 
 One other general comment: would it be useful to have a glossary of terms somewhere in the manuscript or supplement? There are some esoteric terms that get used throughout the paper and are defined in the text, but a centralized location for these terms could help readers with comprehension. Key terms may include: risk, hazard, spillover, biosurveillance, discovery sampling, prevalence sampling, Biodiversity Observation Network, biodiversity dose.
 
-#response[TODO: we might do this idk]
+#response[TK: we might do this idk. probably in the supplement if anywhere?]
 
 L19-20: Expand on this statement a little to provide more justification. As it stands now, this seems like a fairly empty proclamation. However, the first paragraph of Section 2 does a fantastic job with distinguishing hazard from risk and justifying why biosurveillance is a key part of estimating hazard. Pulling in some of that nuance here would make a stronger case.
+
+#response[We have added that this specifically is aimed to identify regions whwere spillover is most probable to target preventative measures.]
 
 L32: Hyphen not needed in Arenaviridae. Also make sure to italicize virus family names. Lastly, and this may be pedantic, but “small mammals” or “rodents and shrews” would be better than rodents here and throughout the paper. Suncus murinus and Crocidura lasiura are shrews (Eulipotyphla), not rodents. And I think broadly the hantaviruses can infect both taxa, so you should be as inclusive as possible, even if arenaviruses are more specific to rodents.
 
@@ -352,9 +359,11 @@ L32: Hyphen not needed in Arenaviridae. Also make sure to italicize virus family
 
 L34-35: This is more of a general comment, but it was not immediately clear how this protocol would get used in the public health space. Who are the intended users of this protocols and how would the information about sampling and testing be distributed to stakeholders? Do you think this is a purely academic exercise, or is it intended that governments and agencies would be leading these efforts? It may be worth some additional discussion at the end of the paper to make the strong case to specific end users.
 
-#response[TK: we have added discussion points about pragmatic constraints in lines X - X, in conjunction with comments from the other reviewer]
+#response[We have added an additional paragraph in the discussion about pragmatic details of funding and integration with existing biodiversity monitoring programs, in conjunction with comments from the other reviewer.]
 
 L124-127: Why is this considered part of risk? As laid out in the sections above, this seems more in line with hazard rather than risk, because risk is largely driven by anthropogenic activities, no? Changes in the host side of things seem like they would have more influence on hazard than risk.
+
+#response[We have adjusted this sentence to explicitly say the density of infected hosts in a location proximate to human populations, to make it explicit that why we are talking about risk rather than hazard.]
 
 L184-185: Unclear which of the methods is the one with higher false-negatives. One would initially guess that PCR has the higher false-negative rate because of the frequently short window of pathogen shedding, such that it may be difficult to find a host actively shedding, even if they are ultimately a competent host. Whereas with serology, one runs the risk of including many noncompetent hosts that have simply been exposed but the pathogen does not replicate in or transmit from this host. So those would be false-positives in the eyes of many ecologists. This question seems like it would also have a fairly large influence on the model uncertainty. Is this something that needs to be included in sensitivity analyses? And is there a way of incorporating uncertainty in host weights into the calculation of biodiversity dose, beyond just random noise, but a more specific way of quantifying differences in uncertainty among host species?
 
@@ -363,7 +372,7 @@ L184-185: Unclear which of the methods is the one with higher false-negatives. O
 
 L199: What about prevalence uncertainty? If a small sample at a location showed high prevalence, it does not mean it is always that high and is likely biased. This location would have high prevalence uncertainty (10/1000 has less uncertainty than 1/100). Is there any way to include prevalence uncertainty into this model, e.g., weighting inversely by sample size? If it is already included in the model, a short section explaining how it is done would be helpful.
 
-#response[TK This is a good point that is mentioned in the supplemental table. We have added an explicit mention of the uncertainty in prevalence estimates due to sample size in lines TK of the main text.]
+#response[We agree with the reviewer that this is a highly relevant point, which we demonstrate in the second case study. We have added an additional sentence on this in the "Integration of prevalence data into monitoring network design", and it is mentioned explicitly in Supplemental Table 1.]
 
 L213: Could the authors provide more guidance about how all these uncertainties about host competence and prevalence get boiled down into w_{i}? Is there an equation that could be built to estimate w_{i}, or are the values based solely on investigator judgement?
 
@@ -371,38 +380,43 @@ L213: Could the authors provide more guidance about how all these uncertainties 
 
 L281-283: Could you also apply this to investigate the sensitivity of maps to changes in weights that do indeed reflect biological differences in host relevance, such as when one doesn’t know whether all species are equally competent hosts? Would there need to be something larger than small “nudges” to the weights?
 
-#response[TK. The nudge version of sensitivity analysis is mostly to ensure the selected weights are not near a ]
-
+#response[TK. The nudge version of sensitivity analysis is mostly to ensure the selected weights are not near a "steep" region in weight-space]
 
 L300-L303: Maybe indicate that the South Korea case study is about hosts of Hantaviridae. It’s not currently stated explicitly here.
 
-#response[TK we did this]
+#response[We have implemented this change.]
 
 L308-309: If there is no prevalence or sampling data in some locations, how can one be sure about which hosts are contributing to pathogen maintenance? Are there potentially unknown host species that need to be accounted for? And how would one go about assigning weights to these species?
 
+#response[TK]
+
 L335-338: I understand what is trying to be done here with this case study, but it sort of falls short of being a great example of how one might approach this type of low information sampling. This seems from a glance to be just an assortment of relatively common species in India. The authors might have to provide a disclaimer that the species chosen by Rodrigues may be different than what would have been chosen by an alternative method that uses all available biodiversity information and phylogenetic proximity to known hosts.
 
-#response[TODO: we agree and have acknowledged contemporary approach would consider different species]
+#response[We agree that with modern available data there would be several additional potential hosts we would include, and have added text to emphasize we only use these species for the sake of example because they are the species sampled by Rodrigues et al. and a contemporary approach would use addition information to select hosts.]
 
 L338: What were the chosen weights? Which species ended up with the highest weight in the images shown in Figure 2?
 
-#response[TODO: we have added the values of the randomly drawn weights in the text]
+#response[We have added the values of the randomly drawn weights in the text.]
 
 L348-349: What is the process for deciding the tilting value alpha? What sort of behavior in the model is “ideal” and how would a user decide?
 
-#response[TODO: add a paragraph on what tilting really means: look at the distribution of values in feature and uncertainty space]
+#response[TK we have added a sentence on how this corresponds to mean/variance of priority values and related this to uncertainty in decisions about what hosts to include and their selected weights.]
 
 L359: What is the justification for including Imjin virus here? Is there any evidence that this virus can or does infect humans? Or is this operating from a pure hazard viewpoint that any hantavirus in a host can potentially cause human infections? And what do we know about the role of these species in transmission? Are they the only hosts, or just the dominant hosts? How many additional species contribute to hantavirus transmission in South Korea that are not included in this case study?
 
+#response[TK: there was good prevalence data, it can replicate in macrophages @Shin2012DistinctInnate, it shows a balance of known zoonoses and viruses of concern.]
+
 L363-366: If the authors were performing this case study as a real analysis or sample planning exercise, what sort of sensitivity analyses would the authors suggest running to incorporate additional known hosts and other potential hosts with unknown status?
 
-#response[TK: integrated this with comments on the other form of sensitivity (i.e. adding/removing hosts and looking at sensitivity)]
+#response[TK: integrated this with comments on the other form of sensitivity (i.e. adding/removing hosts and looking at sensitivity) in the protocol section]
 
 L384: Similar comment as above, how was the tilting value alpha chosen for this case study?
 
+#response[TK we state its arbitrary and refer to the original comment on the tilting value selection in the India case study.]
+
 L481-483: The way I thought about this was in terms of additive probabilities. Because the presence of species are not mutually exclusive, their additive probabilities would be P(A or B) = P(A) + P(B) – P(A and B). However, since P(A and B) requires a joint SDM to estimate, it does not get subtracted off in the probability estimate and therefore we get an overestimate of sympatry between two species. And obviously this gets compounded when you stack an even larger number of potential sympatric species.
 
-#response[This is why its importance to remember that this is a suitability score and not a probability of occurrence. TK: add back cite of Zurell paper that shows SSDMs are better at richness estimates]
+#response[TK. This is why its importance to remember that this is a suitability score and not a probability of occurrence. TK: add back cite of Zurell paper that shows SSDMs are better at richness estimates]
 
 = Editor
 
