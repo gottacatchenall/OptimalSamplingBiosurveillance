@@ -299,3 +299,49 @@ begin
 end
 
 save(joinpath("plots", "india.png"), fig)
+
+
+
+
+
+# Compare tilting values and the density in priority across α
+
+# Sample a BON
+
+reps = 10
+
+priority_results = [[priority[BiodiversityObservationNetworks.sample(
+    BalancedAcceptance(), 
+    priority, 
+    inclusion=tilt(priority, α)
+).sites] for i in 1:reps] for α in [1, 5, 10]]
+
+
+begin 
+f = Figure(size=(750,500))
+NUM_BINS = 25
+ax = Axis(f[1,1], aspect=1, xlabel = L"\text{Sampling Priority}\ \ ( P_x\ )", ylabel = "Density")
+
+for p in priority_results[1]
+    density!(ax, p, color=(:purple, 0.1)) #, bins=NUM_BINS, label = "α = 1")
+end 
+
+for p in priority_results[2]
+    density!(ax, p, color=(:dodgerblue, 0.1)) #, bins=NUM_BINS, label = "α = 1")
+end 
+
+for p in priority_results[3]
+    density!(ax, p, color=(:green, 0.1)) #, bins=NUM_BINS, label = "α = 1")
+end 
+
+
+#hist!(ax, std(priority_results[2]), color=(:dodgerblue, 0.7), bins=NUM_BINS, label = "α = 5")
+#hist!(ax, std(priority_results[3]), color=(:green, 0.7), bins=NUM_BINS, label = "α = 10")
+xlims!(ax, 0,1)
+ylims!(0, 5)
+axislegend(ax, [PolyElement(color=:purple), PolyElement(color=:dodgerblue), PolyElement(color=:green)], [L"\alpha = 1", L"\alpha = 5", L"\alpha = 10"], position = :lt)
+f
+save(joinpath("plots", "tilting_values.png"), f)
+end
+
+

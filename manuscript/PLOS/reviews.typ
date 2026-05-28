@@ -41,7 +41,7 @@ unrelated. However, I am primarily an R user, so this could reflect my own skill
 than an issue with the repository itself. If may be helpful for the authors to ask another
 primarily R user to test the workflow on a different machine.
 
-#response[*TODO* BAR. We believe that this is related to an update that occurred from Julia 1.11 (which is where the original code was developed) and Julia 1.12. ]
+#response[*TK* BAR. We believe that this is related to an update that occurred from Julia 1.11 (which is where the original code was developed) and Julia 1.12. ]
 
 == Major Comments (General Feedback)
 
@@ -53,9 +53,12 @@ Because the manuscript does not sufficiently situate itself within the broader l
 
 I recognize that several authors on this paper have made important contribution to the biodiversity-disease space (and I enjoy these papers!). However, this is a large and active field with many research groups working on related problems. I would encourage the authors to broaden the citation base so that the manuscript better reflects that broader community. A brief scan of the reference list suggests a substantial number of citations include members of the author team (even with the “et al” truncation). 
 
-#response[TK we have added numerous additional citations throughout the manuscript:
+#response[
 
-We have restructured part of the introduction to introduce both existing biosurveillance and long-term biodiversity monitoring program, and highlighted that the novel perspective introduced here is the potential to integrate these monitoring systems. 
+TK 
+We have restructured part of the introduction to introduce both existing biosurveillance and long-term biodiversity monitoring programs, and highlighted that the novel perspective introduced here is the potential to integrate these monitoring systems. 
+
+We have also added numerous additional citations throughout the manuscript:
 
  @Luis2013ComparisonBats @Murray2015GlobalBiogeography @Olival2017HostViral @Murray2018PathogeographyLeveraging.
 
@@ -70,20 +73,17 @@ Some focus on existing zoonotic surveillance programs:
 
 Some on data standardization:
 
-@Shanbehzadeh2022DesigningStandardized
-@Schwantes2025MinimumData
+@Shanbehzadeh2022DesigningStandardized.
+
+
+We are open to any further references that the reviewer believes we have missed. 
 
 ]
 
 Similarly, the manuscript highlights BON as the primary monitoring framework, despite the existence of many other long-term biodiversity monitoring networks. While BON is an important example, it would be more appropriate to frame it as one of several efforts working toward standardized biodiversity monitoring. This work builds on substantial existing foundation, and acknowledging the broader literature would strengthen the manuscript.
 
 #response[
-  TK we have expanded on this to cover various long-term biodiversity monitoring projects (BBS, LTER, NEON, TERN), the EBV and EESV frameworks and the GBF, and how it can supplement disease surveillance (TK CITE FRANCIS).
-
-  TK we have also cited additional work of zoonotic disease surveillance programs:
-
-  GOARN, GEIS, PREDICT, GLEWS+
-
+  We have added a paragraph in the introduction that covers various long-term biodiversity monitoring projects (BBS, LTER, NEON, TERN), the Essential Biodiversity Variable (EBV) and Essential Ecosystem Service Varaible (EESV) frameworks and the GBF, and how these can support biosurveillance.
 ]
 
 == Specific Comments
@@ -100,7 +100,7 @@ More consideration could be given to citation choices in the opening paragraph o
 
 After reading lines 49-57, I wondered who would realistically fund the surveillance and standardization systems being proposed. Are these cost estimates or funding mechanisms that could support implementation of the monitoring protocol suggested here? While these logistical considerations may be too detailed for the Introduction, I hope the Discussion includes a more substantial consideration of the trade- offs between ideal surveillance systems and what is practical to implement. Treaties and global initiatives may call for these systems, but the protocol proposed here implies substantial additional effort (at the individual and institutional levels), and it would strengthen the paper to acknowledge the logistical challenges users may face.
 
-#response[TK: we add a paragraph in the discussion on this and relate to financing GBiOS and GBF stuff]
+#response[We have added an additional paragraph in the discussion on funding and integration with a Global Biodiversity Observing System @Gonzalez2023GlobalBiodiversity, and its funding model.]
 
 ==== Comment 3: 
 
@@ -132,7 +132,7 @@ weighting decisions are made somewhat ad hoc by modelers.
 
 I appreciated the ideas introduced in lines 181-188. After reading these lines, I felt that a deeper methodological discussion would be valuable (separate from Box 2 or the supplement example of weight sensitivity analysis). Because this manuscript is presented as a protocol paper, I would welcome a discussion of how species weighting could be implemented in practice, including potential pitfalls and non-negotiable assumptions.
 
-#response[TODO: yeah we should do this]
+#response[In response to both this comment and a comment from the other reviewer, we have added additional detail on the process of selecting weights, and accounting for uncertainty in weight selection in this part of the manuscript.]
 
 === _Case Studies_
 
@@ -155,7 +155,7 @@ logistical limitations. The Introduction discussion international treaties and p
 Discussion more closely with the Introduction would improve coherence. The final
 paragraph in particular could benefit from additional development.
 
-#response[TODO: we discuss funding and adjusted the tone to match the introduction more closely]
+#response[We have expanded upon the discussion and added several citations. This includes better placing our work in the context of the relationship between biogeography and pathogen biology, and further details on the funding model and integration with long-term biodiversity monitoring programs.]
 
 == Minor Comments (Line feedback)
 

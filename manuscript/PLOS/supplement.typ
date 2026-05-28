@@ -84,4 +84,10 @@ As an example of weight sensitivity analysis, in @sensitivity we apply random no
 
 #include "big_chungus_table.typ"
 
+
+#figure(
+  image("../../plots/tilting_values.png", width: 110%),
+  caption: [The density of priority scores across selected sampling sites for the India case study for three levels of tilting values $alpha = [1, 5, 10]$ (purple, blue, and green respectively). Each tilting value was used to select 10 different sets of sampling sites, and the density for each replicate is plotted.]
+) <tilting>
+
 #showbibliography("refs.bib") 
