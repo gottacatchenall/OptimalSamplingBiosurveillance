@@ -41,7 +41,11 @@ unrelated. However, I am primarily an R user, so this could reflect my own skill
 than an issue with the repository itself. If may be helpful for the authors to ask another
 primarily R user to test the workflow on a different machine.
 
-#response[*TK* BAR. We believe that this is related to an update that occurred from Julia 1.11 (which is where the original code was developed) and Julia 1.12. ]
+#response[We believe that the reviewer's issue is likely related to an update that occurred from Julia 1.11 (which is the version of Julia in which the original code was developed) and Julia 1.12. A minor change to the LinearAlgebra package caused a function used in kriging to break.
+
+*TK do this* We have both addressed this issue and pinned explicit package versions in the Julia environment file (Package.toml) to improve reproducability in the future, and added explicit instructions in the README about versioning requirements to avoid incidents like this in the future. 
+
+]
 
 == Major Comments (General Feedback)
 
@@ -60,7 +64,7 @@ We have restructured part of the introduction to introduce both existing biosurv
 
 We have also added numerous additional citations throughout the manuscript:
 
- @Luis2013ComparisonBats @Murray2015GlobalBiogeography @Olival2017HostViral @Murray2018PathogeographyLeveraging.
+@Luis2013ComparisonBats @Murray2015GlobalBiogeography @Olival2017HostViral @Murray2018PathogeographyLeveraging.
 
 
 Some focus on existing zoonotic surveillance programs:
@@ -83,7 +87,7 @@ We are open to any further references that the reviewer believes we have missed.
 Similarly, the manuscript highlights BON as the primary monitoring framework, despite the existence of many other long-term biodiversity monitoring networks. While BON is an important example, it would be more appropriate to frame it as one of several efforts working toward standardized biodiversity monitoring. This work builds on substantial existing foundation, and acknowledging the broader literature would strengthen the manuscript.
 
 #response[
-  We have added a paragraph in the introduction that covers various long-term biodiversity monitoring projects (BBS, LTER, NEON, TERN), the Essential Biodiversity Variable (EBV) and Essential Ecosystem Service Varaible (EESV) frameworks and the GBF, and how these can support biosurveillance.
+  We have added a paragraph in the introduction that covers various long-term biodiversity monitoring projects (BBS, LTER, NEON, TERN), the role of GBIF and data standards like Darwin Core, the Essential Biodiversity Variable (EBV) and Essential Ecosystem Service Varaible (EESV) frameworks, and the GBF, and how these can support biosurveillance.
 ]
 
 == Specific Comments
@@ -94,13 +98,16 @@ Similarly, the manuscript highlights BON as the primary monitoring framework, de
 
 More consideration could be given to citation choices in the opening paragraph of the Introduction. While the cited research groups have contributed significantly to this field, it would be beneficial to diversify the research groups cited in the opening paragraph, given the breadth of work in biodiversity-disease research.
 
-#response[We appreciate the comments and have added citations to the following papers to the introductory paragraph to widen the citation-base: @Plowright2017PathwaysZoonotic @Eby2023PathogenSpillover @Johnson2020GlobalShifts. TK MORE]
+#response[We appreciate the comments and have added citations to the following papers to the introductory paragraph to widen the citation-base: @Plowright2017PathwaysZoonotic @Eby2023PathogenSpillover @Johnson2020GlobalShifts. TK MORE.
+
+We are happy to include any additional citations that the reviewer believes are missing. 
+]
 
 ==== Comment 2: 
 
 After reading lines 49-57, I wondered who would realistically fund the surveillance and standardization systems being proposed. Are these cost estimates or funding mechanisms that could support implementation of the monitoring protocol suggested here? While these logistical considerations may be too detailed for the Introduction, I hope the Discussion includes a more substantial consideration of the trade- offs between ideal surveillance systems and what is practical to implement. Treaties and global initiatives may call for these systems, but the protocol proposed here implies substantial additional effort (at the individual and institutional levels), and it would strengthen the paper to acknowledge the logistical challenges users may face.
 
-#response[We have added an additional paragraph in the discussion on funding and integration with a Global Biodiversity Observing System @Gonzalez2023GlobalBiodiversity, and its funding model.]
+#response[We have added an additional paragraph in the discussion on funding and integration with a Global Biodiversity Observing System @Gonzalez2023GlobalBiodiversity and its funding model.]
 
 ==== Comment 3: 
 
@@ -112,7 +119,7 @@ established networks including US LTER, US NEON, North American Breeding Bird Su
 Highlighting similar networks would help acknowledge the substantial investments that
 have already been made in biodiversity monitoring and clarify that the authors’ contribution extends this work through a disease-ecology lens.
 
-#response[TK: we acknowledge much work has been done outside the BON perspective and add this to the intro and relevant places]
+#response[We have added reference to these (and additional) monitoring networks in the introduction and highlighted how these can contribute to biosurveillance and provide the basis for deeper integration of biodiversity data in long-term biosurveillance programs.]
 
 === _Methods/Conceptual Framework_
 
