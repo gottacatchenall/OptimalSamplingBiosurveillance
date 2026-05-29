@@ -43,8 +43,7 @@ primarily R user to test the workflow on a different machine.
 
 #response[We believe that the reviewer's issue is likely related to an update that occurred from Julia 1.11 (which is the version of Julia in which the original code was developed) and Julia 1.12. A minor change to the LinearAlgebra package caused a function used in kriging to break.
 
-*TK do this* We have both addressed this issue and pinned explicit package versions in the Julia environment file (Package.toml) to improve reproducability in the future, and added explicit instructions in the README about versioning requirements to avoid incidents like this in the future. 
-
+We have both addressed this issue and pinned explicit package versions in the Julia environment file (Package.toml) to improve reproducability in the future, and added explicit instructions in the README.md about versioning requirements to avoid incidents like this in the future. 
 ]
 
 == Major Comments (General Feedback)
@@ -59,26 +58,9 @@ I recognize that several authors on this paper have made important contribution 
 
 #response[
 
-TK 
 We have restructured part of the introduction to introduce both existing biosurveillance and long-term biodiversity monitoring programs, and highlighted that the novel perspective introduced here is the potential to integrate these monitoring systems. 
 
-We have also added numerous additional citations throughout the manuscript:
-
-@Luis2013ComparisonBats @Murray2015GlobalBiogeography @Olival2017HostViral @Murray2018PathogeographyLeveraging.
-
-
-Some focus on existing zoonotic surveillance programs:
-
-@Aguiar2025PreventingZoonotic
-@OShea2017DigitalDisease
-@Halliday2012BringingTogether
-@Sharan2023SurveillanceResponse
-@Clow2019FrameworkAdaptive
-
-Some on data standardization:
-
-@Shanbehzadeh2022DesigningStandardized.
-
+We have also added numerous additional citations throughout the manuscript, but particularly in the introduction.
 
 We are open to any further references that the reviewer believes we have missed. 
 
@@ -98,9 +80,7 @@ Similarly, the manuscript highlights BON as the primary monitoring framework, de
 
 More consideration could be given to citation choices in the opening paragraph of the Introduction. While the cited research groups have contributed significantly to this field, it would be beneficial to diversify the research groups cited in the opening paragraph, given the breadth of work in biodiversity-disease research.
 
-#response[We appreciate the comments and have added citations to the following papers to the introductory paragraph to widen the citation-base: @Plowright2017PathwaysZoonotic @Eby2023PathogenSpillover @Johnson2020GlobalShifts. TK MORE.
-
-We are happy to include any additional citations that the reviewer believes are missing. 
+#response[We appreciate the comment and have added numerous references to the introduction to widen the citation-base. We are happy to include any additional citations that the reviewer believes are missing. 
 ]
 
 ==== Comment 2: 
@@ -130,13 +110,6 @@ been attempted in other disease systems (e.g., bird communities in the West Nile
 system or mammal communities in the Lyme disease system). In many cases, species
 weighting decisions are made somewhat ad hoc by modelers. 
 
-#response[TK: we thank the reviewer for pointing us to this work and we have added reference to this in ...
-
-
-@Kain2019PredictingWest
-@Guillot2024SpatialMulticriteria
-]
-
 I appreciated the ideas introduced in lines 181-188. After reading these lines, I felt that a deeper methodological discussion would be valuable (separate from Box 2 or the supplement example of weight sensitivity analysis). Because this manuscript is presented as a protocol paper, I would welcome a discussion of how species weighting could be implemented in practice, including potential pitfalls and non-negotiable assumptions.
 
 #response[In response to both this comment and a comment from the other reviewer, we have added additional detail on the process of selecting weights, and accounting for uncertainty in weight selection in this part of the manuscript.]
@@ -149,7 +122,7 @@ across both case studies. At present, they read somewhat as though there were wr
 different authors. I particularly appreciated how Case Study 1 clearly walked through how
 dose and uncertainty could be interpreted across regions.
 
-#response[TK: we have made them read more like the same person.]
+#response[We have added more detail focused on map interpretation in order to unify the tone across case studies.]
 
 === _Discussion_
 
@@ -224,7 +197,7 @@ paragraph in particular could benefit from additional development.
 
 - Lines 113-121: While the cited papers are nice and relevant, many originate from the same research group. Including additional perspectives would strengthen the balance of the section.
 
-#response[TK I have to do this still]
+#response[We have added several new references to this section.]
 
 - Line 123: Some more recent literature could be cited here. Additionally, because community composition does not always influence pathogen dynamics, the statement may need to be softened or balanced with additional citations.
 
@@ -241,7 +214,9 @@ paragraph in particular could benefit from additional development.
 
 - Lines 137-138: Clarify that when pathogen prevalence relationships are known but abundance is not, sampling should prioritize host identity.
 
-#response[TK idk what this means, it seems backwards?]
+#response[We are a bit confused about what the reviewer means here. If pathogen prevalence is known, wouldn't host identity already be known because prevalence data reflects the proportion of individuals of a given host species in which the pathogen was found? Does the reviewer mean host identity should be prioritized for other hosts outside of those with available prevalence data? Or that the abundance of the host with available prevalence data should be the next priority for sampling?
+
+We have not implemented any changes here, but would be willing to if the reviewer what clarify their comment.]
 
 - Lines 144-145: “Quantitative” may be redundant, consider removing or replacing with
 “statistical”
@@ -283,7 +258,7 @@ paragraph in particular could benefit from additional development.
 
 - Lines 300-303: As a preference, it might be helpful to present the more data-rich case study (south korea) first
 
-#response[TK we don't do this because...]
+#response[We have considered the reviewers suggestion, but we have decided against this because leading with the less data rich case study first enables introduction of dose/uncertainty maps first, without the additional complexity contributed by accounting for prevalence uncertainty in the second case study. An attempt to restructure them left the India case study feeling a bit anticlimatic in our opinion, so we have kept the structure of India first and Korea second. ]
 
 - Lines 308-309: if a package or specific download citation was used to retrieve GBIF data, it
 should be cited (often GBIF gives you a specific citation based on the occurrence data
@@ -330,7 +305,7 @@ downloaded)
 
 - Line 442: Minor figure design suggestion, aligning the arrows between panels (the tips of arrows directly touch) may improve visual clarity
 
-#response[TK Idk what this means.]
+#response[We have adjusted the arrow pointing from species weighting to the path pointing to dose and dose uncertainty for clarity.]
 
 - Line 448: Spell out “and” instead of using “+” . Also include citations for country boundary datasets if applicable.
 
@@ -354,7 +329,7 @@ Developing surveillance systems for wildlife pathogens continues to be a tricky 
 
 One other general comment: would it be useful to have a glossary of terms somewhere in the manuscript or supplement? There are some esoteric terms that get used throughout the paper and are defined in the text, but a centralized location for these terms could help readers with comprehension. Key terms may include: risk, hazard, spillover, biosurveillance, discovery sampling, prevalence sampling, Biodiversity Observation Network, biodiversity dose.
 
-#response[TK: we might do this idk. probably in the supplement if anywhere?]
+#response[We have added a glossary in the supplemental material of the manuscript.]
 
 L19-20: Expand on this statement a little to provide more justification. As it stands now, this seems like a fairly empty proclamation. However, the first paragraph of Section 2 does a fantastic job with distinguishing hazard from risk and justifying why biosurveillance is a key part of estimating hazard. Pulling in some of that nuance here would make a stronger case.
 
@@ -362,7 +337,7 @@ L19-20: Expand on this statement a little to provide more justification. As it s
 
 L32: Hyphen not needed in Arenaviridae. Also make sure to italicize virus family names. Lastly, and this may be pedantic, but “small mammals” or “rodents and shrews” would be better than rodents here and throughout the paper. Suncus murinus and Crocidura lasiura are shrews (Eulipotyphla), not rodents. And I think broadly the hantaviruses can infect both taxa, so you should be as inclusive as possible, even if arenaviruses are more specific to rodents.
 
-#response[TK: we've adjusted both family names and changed to using both "small mammals" and "rodents and shrews" throughout the manuscript, rather than strictly "rodents"]
+#response[We've adjusted both family names and changed to using both "small mammals" and "rodents and shrews" throughout the manuscript, rather than strictly "rodents".]
 
 L34-35: This is more of a general comment, but it was not immediately clear how this protocol would get used in the public health space. Who are the intended users of this protocols and how would the information about sampling and testing be distributed to stakeholders? Do you think this is a purely academic exercise, or is it intended that governments and agencies would be leading these efforts? It may be worth some additional discussion at the end of the paper to make the strong case to specific end users.
 
@@ -374,20 +349,26 @@ L124-127: Why is this considered part of risk? As laid out in the sections above
 
 L184-185: Unclear which of the methods is the one with higher false-negatives. One would initially guess that PCR has the higher false-negative rate because of the frequently short window of pathogen shedding, such that it may be difficult to find a host actively shedding, even if they are ultimately a competent host. Whereas with serology, one runs the risk of including many noncompetent hosts that have simply been exposed but the pathogen does not replicate in or transmit from this host. So those would be false-positives in the eyes of many ecologists. This question seems like it would also have a fairly large influence on the model uncertainty. Is this something that needs to be included in sensitivity analyses? And is there a way of incorporating uncertainty in host weights into the calculation of biodiversity dose, beyond just random noise, but a more specific way of quantifying differences in uncertainty among host species?
 
-#response[TK: long story short.]
+#response[We have removed the reference to one method having higher false-negatives and added several sentences of additional detail to clarify the difference in what serological vs. PCA data are saying, and more on what the implications of each type of data for sampling prioritization are.]
 
 
 L199: What about prevalence uncertainty? If a small sample at a location showed high prevalence, it does not mean it is always that high and is likely biased. This location would have high prevalence uncertainty (10/1000 has less uncertainty than 1/100). Is there any way to include prevalence uncertainty into this model, e.g., weighting inversely by sample size? If it is already included in the model, a short section explaining how it is done would be helpful.
 
 #response[We agree with the reviewer that this is a highly relevant point, which we demonstrate in the second case study. We have added an additional sentence on this in the "Integration of prevalence data into monitoring network design", and it is mentioned explicitly in Supplemental Table 1.]
 
-L213: Could the authors provide more guidance about how all these uncertainties about host competence and prevalence get boiled down into w_{i}? Is there an equation that could be built to estimate w_{i}, or are the values based solely on investigator judgement?
+L213: Could the authors provide more guidance about how all these uncertainties about host competence and prevalence get boiled down into w\_{i}? Is there an equation that could be built to estimate w\_{i}, or are the values based solely on investigator judgement?
 
-#response[TK. ]
+#response[We have added additional discussion in the "Biodiversity dose, host weighting, and uncertainty" section of the protocol to address this question, specifically focusing on ways to assess weight sensitivity to larger, biologically meaningful differences in weight selection and host inclusion/exclusion. We have added a recommendation for future work on assessing explicit formulae for constructing weights based on various forms of available data (e.g. phylogenies, serology data, and the capacity of species to serve as hosts) using simulation as a sandbox to test the efficacy of different formulae for weight construction, although we believe this is out of scope of this manuscript.]
 
 L281-283: Could you also apply this to investigate the sensitivity of maps to changes in weights that do indeed reflect biological differences in host relevance, such as when one doesn’t know whether all species are equally competent hosts? Would there need to be something larger than small “nudges” to the weights?
 
-#response[TK. The nudge version of sensitivity analysis is mostly to ensure the selected weights are not near a "steep" region in weight-space]
+#response[ 
+We agree with the reviewer that other forms of sensitivity analysis are prudent to assess the inclusion/exclusion of particular hosts, and larger differences in selected weights that reflect meaningful biological difference in host capacity.
+
+The "nudge" version of sensitivity analysis is mostly to ensure the selected weights are not near a "steep" region in weight-space where the output changes dramatically based.
+
+We have added additional detail in the "Biodiversity dose, host weighting, and uncertainty" section of the manuscript to address how uncertainty in weight selection can be account for, namely by creating priority maps for each set of competing weights and included hosts, and targeting sampling toward the regions that are high priority under each set of candidate priority maps.  
+]
 
 L300-L303: Maybe indicate that the South Korea case study is about hosts of Hantaviridae. It’s not currently stated explicitly here.
 
@@ -395,11 +376,11 @@ L300-L303: Maybe indicate that the South Korea case study is about hosts of Hant
 
 L308-309: If there is no prevalence or sampling data in some locations, how can one be sure about which hosts are contributing to pathogen maintenance? Are there potentially unknown host species that need to be accounted for? And how would one go about assigning weights to these species?
 
-#response[TK]
+#response[We have added several sentences about the choices made in host inclusion and uncertainty about weight selection in the "Biodiversity dose, host weighting, and uncertainty" section of the protocol that we believe addresses these concerns with more methodological detail. ]
 
 L335-338: I understand what is trying to be done here with this case study, but it sort of falls short of being a great example of how one might approach this type of low information sampling. This seems from a glance to be just an assortment of relatively common species in India. The authors might have to provide a disclaimer that the species chosen by Rodrigues may be different than what would have been chosen by an alternative method that uses all available biodiversity information and phylogenetic proximity to known hosts.
 
-#response[We agree that with modern available data there would be several additional potential hosts we would include, and have added text to emphasize we only use these species for the sake of example because they are the species sampled by Rodrigues et al. and a contemporary approach would use addition information to select hosts.]
+#response[We agree that with modern available data there would be several additional potential hosts we would include, and have added a disclaimer to emphasize we only use these species for the sake of example because they are the species sampled by Rodrigues et al. and a contemporary approach would use addition information to select hosts.]
 
 L338: What were the chosen weights? Which species ended up with the highest weight in the images shown in Figure 2?
 
@@ -407,74 +388,25 @@ L338: What were the chosen weights? Which species ended up with the highest weig
 
 L348-349: What is the process for deciding the tilting value alpha? What sort of behavior in the model is “ideal” and how would a user decide?
 
-#response[TK we have added a sentence on how this corresponds to mean/variance of priority values and related this to uncertainty in decisions about what hosts to include and their selected weights.]
+#response[We have added a sentence on how this corresponds to mean/variance of priority values and related this to uncertainty in decisions about what hosts to include and their selected weights, and included an additional figure in the Supplemental Material that visualizes the distribution of priority value across selected sites for different values of the tilting parameter $alpha$.]
 
 L359: What is the justification for including Imjin virus here? Is there any evidence that this virus can or does infect humans? Or is this operating from a pure hazard viewpoint that any hantavirus in a host can potentially cause human infections? And what do we know about the role of these species in transmission? Are they the only hosts, or just the dominant hosts? How many additional species contribute to hantavirus transmission in South Korea that are not included in this case study?
 
-#response[TK: there was good prevalence data, it can replicate in macrophages @Shin2012DistinctInnate, it shows a balance of known zoonoses and viruses of concern.]
+#response[We have included Imjin virus because there was good existing prevalence data, and there is evidence that it can replicate in human macrophages @Shin2012DistinctInnate. The goal was to show a sampling prioritization that reflects a balance of sampling known zoonoses and viruses of potential spillover concern, and we have edited the text to include this justification.]
 
 L363-366: If the authors were performing this case study as a real analysis or sample planning exercise, what sort of sensitivity analyses would the authors suggest running to incorporate additional known hosts and other potential hosts with unknown status?
 
-#response[TK: integrated this with comments on the other form of sensitivity (i.e. adding/removing hosts and looking at sensitivity) in the protocol section]
+#response[We have added additional discussion regarding other forms of sensitivity analysis to assess the impact of host inclusion/exclusion in the "Biodiversity dose, host weighting, and uncertainty" section of the protocol, namely comparing priority maps with different species included and excluded and targeting sampling toward the regions that are high priority under all host pools.]
 
 L384: Similar comment as above, how was the tilting value alpha chosen for this case study?
 
-#response[TK we state its arbitrary and refer to the original comment on the tilting value selection in the India case study.]
+#response[We have added a parathetical to refer to the newly added comment on tilting value selection in the India case study here.]
 
 L481-483: The way I thought about this was in terms of additive probabilities. Because the presence of species are not mutually exclusive, their additive probabilities would be P(A or B) = P(A) + P(B) – P(A and B). However, since P(A and B) requires a joint SDM to estimate, it does not get subtracted off in the probability estimate and therefore we get an overestimate of sympatry between two species. And obviously this gets compounded when you stack an even larger number of potential sympatric species.
 
-#response[TK. This is why its importance to remember that this is a suitability score and not a probability of occurrence. TK: add back cite of Zurell paper that shows SSDMs are better at richness estimates]
+#response[Interestingly, overall species richness is often better predicted by Stacked SDMs instead of Joint SDMs, and the difference between methods is typically smaller than the difference induced by using different stacking procedures (e.g. thresholding to create binary ranges vs. using continuous suitability scores) as found by #cite(<Zurell2020TestingSpecies>).
 
-= Editor
-
-
-
-#enum()[
-  *Please amend your detailed Financial Disclosure statement. This is published with the article. It must therefore be completed in full sentences and contain the exact wording you wish to be published.*
-  #enum(numbering: "i.")[
-    Please clarify all sources of financial support for your study. List the grants, grant numbers, and organizations that funded your study, including funding received from your institution. Please note that suppliers of material support, including research materials, should be recognized in the Acknowledgements section rather than in the Financial Disclosure. 
-  ][
-    State the initials, alongside each funding source, of each author to receive each grant. For example: "This work was supported by the National Institutes of Health (\#\#\# to AM; \#\#\# to CJ) and the National Science Foundation "\#\#\#" to AM."
-  ][State what role the funders took in the study. If the funders had no role in your study, please state: “The funders had no role in study design, data collection and analysis, decision to publish, or preparation of the manuscript.”
-  ][
-    If any authors received a salary from any of your funders, please state which authors and which funders.
-  ]
-][
-  *We ask that a manuscript source file is provided at Revision. Please upload your manuscript file as a .doc, .docx, .rtf or .tex.*
-][
-  *Please upload separate figure files in .tif or .eps format. Also, remove the figures from your manuscript file but keep the legends.*
-][
-  *Please provide an Author Summary. This should appear in your manuscript between the Abstract (if applicable) and the Introduction, and should be 150–200 words long. The aim should be to make your findings accessible to a wide audience that includes both scientists and non-scientists. Sample summaries can be found on our website under Submission Guidelines*
-][
-  *We have noticed that you have uploaded Supporting Information files, but you have not included a list of legends. Please add a full list of legends for your Supporting Information files after the references list.*
-][
-  *Some material included in your submission may be copyrighted. According to PLOS’s copyright policy, authors who use figures or other material (e.g., graphics, clipart, maps) from another author or copyright holder must demonstrate or obtain permission to publish this material under the Creative Commons Attribution 4.0 International (CC BY 4.0) License used by PLOS journals. Please closely review the details of PLOS’s copyright requirements here: PLOS Licenses and Copyright. If you need to request permissions from a copyright holder, you may use PLOS's Copyright Content Permission form. \ \ Please respond directly to this email or email the journal office and provide any known details concerning your material's license terms and permissions required for reuse, even if you have not yet obtained copyright permissions or are unsure of your material's copyright compatibility.*
-
-  #enum(numbering: "a.")[
-    Figure 1: Please confirm whether you drew the images / clip-art within the figure panels by hand. If you did not draw the images, please provide (a) a link to the source of the images or icons and their license / terms of use; or (b) written permission from the copyright holder to publish the images or icons under our CC-BY 4.0 license. Alternatively, you may replace the images with open source alternatives. See these open source resources you may use to replace images / clip-art:
-  ][
-    Figures 2, 3, 4 and Figure 1 in supplement.pdf: please (a) provide a direct link to the base layer of the map (i.e., the country or region border shape) and ensure this is also included in the figure legend; and (b) provide a link to the terms of use / license information for the base layer image or shapefile. We cannot publish proprietary or copyrighted maps (e.g. Google Maps, Mapquest) and the terms of use for your map base layer must be compatible with our CC-BY 4.0 license. 
-  ][
-    Note: if you created the map in a software program like R or ArcGIS, please locate and indicate the source of the basemap shapefile onto which data has been plotted.
-
-    If your map was obtained from a copyrighted source please amend the figure so that the base map used is from an openly available source. Alternatively, please provide explicit written permission from the copyright holder granting you the right to publish the material under our CC-BY 4.0 license.
-
-    Please note that the following CC BY licenses are compatible with PLOS license: CC BY 4.0, CC BY 2.0 and CC BY 3.0, meanwhile such licenses as CC BY-ND 3.0 and others are not compatible due to additional restrictions. 
-
-    If you are unsure whether you can use a map or not, please do reach out and we will be able to help you. The following websites are good examples of where you can source open access or public domain maps: 
-
-    - U.S. Geological Survey (USGS) - All maps are in the public domain. (http://www.usgs.gov) 
-    - PlaniGlobe - All maps are published under a Creative Commons license so please cite “PlaniGlobe, http://www.planiglobe.com, CC BY 2.0” in the image credit after the caption. (http://www.planiglobe.com/?lang=enl) 
-    - Natural Earth - All maps are public domain. (http://www.naturalearthdata.com/about/terms-of-use/)
-  ]
-
-  #response[
-    The maps used in Figures 2, 3, and 4, and the maps of Korea for Supp. Fig 1, all use GADM, which explicitly states that publishing them under CC-BY is allowed #text(fill: blue)[#link("https://gadm.org/license.html", "on their site")].
-
-    We have replaced the zoomed-in maps of selected sites in Figure 4 with maps from OpenStreetMap, which are 
-
-    TK : I am adding the zoom in land cover maps via sentinel imagery
-  ]
+We have added this caveat and reference to this section of the manuscript.
 ]
 
 

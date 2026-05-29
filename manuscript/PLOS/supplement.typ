@@ -30,6 +30,45 @@
 
 = A protocol for biodiversity-informed wildlife disease surveillance -- Supplemental Material
 
+== Glossary
+
+
+#figure(numbering: "1", caption: [Methods for incorporating prevalence data with varying levels of spatial and temporal coverage])[
+#table(
+  columns: (25%, auto),
+  inset: 10pt,
+  stroke: none,
+  fill: (x, y) => 
+    if y > 0 and x > 0 {
+      if calc.even(y) { 
+          gray.lighten(90%)
+        } 
+      } 
+    else { 
+      rgb("#2c7a5eff") 
+    },  
+  align: (x, y) => {
+    if x > 0 and y > 0 {
+      left 
+    }
+    else {
+      horizon 
+    }
+  },
+  table.header(
+    [Term], [Definition],
+  ),
+  [Zoonotic Spillover], [The transmission of a pathogen from wildlife into a human.],
+  [Zoonotic Hazard], [The active circulation of a pathogen in a host reservoir in a state conducive to transmission to humans.],
+  [Zoonotic Risk], [The potential for a zoonotic hazard to become actualized via spillover into human populations],
+  [Biosurveillance], [The monitoring of zoonotic pathogens in wildlife for the aim of predicting regions of spillover risk and implementing preventative measures],
+  [Discovery sampling], [Sampling for the occurrence (or lack thereof) of host species of a zoonotic pathogen],
+  [Prevalence sampling], [Sampling host populations to estimate the proportion of individuals infected by a pathogen],
+  [Biodiversity Observation Network], [A network of sampling sites for biodiversity data, and the researchers and infrastructure to manage and share that data],
+  [Biodiversity dose], [The weighted sum of habitat suitability (as estimated via species distribution models) across host species of a zoonotic pathogen, where weights indicate the capacity of a host species to maintain the pathogen.]
+  
+)] <glossary>
+
 == Example Sensitivity Analysis 
 
 As an example of weight sensitivity analysis, in @sensitivity we apply random noise to each possible value of the weights for the three host species we assess in the second case study. The ternary plot in the left of @sensitivity represents each possible combination of weights for three species. The color of each point is the sensitivity $S(bold(w))$ for noise drawn from standard Normal distribution with $sigma_("noise")=0.01$ across 100 samples. 

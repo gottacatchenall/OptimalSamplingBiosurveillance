@@ -6,6 +6,8 @@ This repository contains code associated with the manuscript _A protocol for bio
 
 This analysis was written in Julia v1.12. Instructions for installing Julia can be found [here](https://julialang.org/downloads/).  
 
+We recommend using v1.12 as future versions may introduce breaking changes to the package.
+
 The required packages can be installed by running Julia from the root of the repository, and running
 
 ```julia
