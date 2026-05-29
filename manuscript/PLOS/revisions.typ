@@ -14,10 +14,6 @@
 
 #let sidenote = sidenote.with(numbering: " 1", side: right, padding: 1em, format: review_ref)
 
-
-#let add(body) = text(fill: rgb("#1b8e1b"), weight: "regular")[#body]
-#let change(body) = text(fill: rgb("#2b2ba5"))[#underline(body, stroke: rgb(0, 90, 90))]
-#let cut(body) = text(fill: rgb(150, 150, 150))[#strike(body, stroke: rgb(100, 0, 0))]
 #let response(ed: false, body) = block(fill: color.hsl(195deg, 30%, 98%), inset: 1em, radius: 0.05em, width: 100%, stroke: (left: 0.2mm + color.hsv(195deg, 100%, 45%)))[
   #text(weight: "bold")[Revisions Document]
 
@@ -44,6 +40,11 @@
 #show cite: set text(fill: rgb("#528fd1"))
 
 
+// Editing marks
+#let add(body) = text(fill: rgb(0, 100, 0))[#body]
+#let change(body) = text(fill: rgb(0, 100, 100))[#underline(body, stroke: rgb(0, 90, 90))]
+#let cut(body) = text(fill: rgb(150, 150, 150))[#strike(body, stroke: rgb(100, 0, 0))]
+
 #response(ed: true)[
   This document tracks the changes to the manuscript, which indicates #add[additions], #change[changes], and #cut[deletions] to the text resulting from comments made by reviewers.
 
@@ -59,11 +60,6 @@
 #text(size: 28pt, fill: rgb("#333"), weight: 600)[#par(text(title), leading: 0.5em)]  
 
 #showauthors(authors, institutions, corresponding_email)
-
-// Editing marks
-#let add(body) = text(fill: rgb(0, 100, 0))[#body]
-#let change(body) = text(fill: rgb(0, 100, 100))[#underline(body, stroke: rgb(0, 90, 90))]
-#let cut(body) = text(fill: rgb(150, 150, 150))[#strike(body, stroke: rgb(100, 0, 0))]
 
 
 #v(1.5em)

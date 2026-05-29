@@ -13,8 +13,10 @@
   #text(font: "Libertinus Serif")[#body]
 ]
 
-#let add(body) = text(fill: rgb("#1b8e1b"), weight: "regular")[#body]
-#let change(body) = text(fill: rgb("#2b2ba5"))[#underline(body, stroke: rgb(0, 90, 90))]
+
+// Editing marks
+#let add(body) = text(fill: rgb(0, 100, 0))[#body]
+#let change(body) = text(fill: rgb(0, 100, 100))[#underline(body, stroke: rgb(0, 90, 90))]
 #let cut(body) = text(fill: rgb(150, 150, 150))[#strike(body, stroke: rgb(100, 0, 0))]
 #show "TK": text(weight: "bold", fill: rgb("#e08619"))[TK]
 
