@@ -93,7 +93,7 @@ increased cross-species transmission] @Carlson2022ClimateChange, including spill
 
 As a result, monitoring infectious diseases in wildlife is an important goal of several international agreements, which all fall under the One Health approach. The interlinkages between biodiversity and health are recognized in the Global Action Plan on Biodiversity and Health from the Convention on Biological Diversity (CBD) and the Pandemic Agreement of the World Health Organization (WHO). Specifically, the CBD encourages Parties to “[reinforce] planning and surveillance of biodiversity, including for wildlife habitats and zoonotic pathogen spillover risk, to better assess and address health and disease risks in order to manage wild species sustainably” @ConventiononBiologicalDiversity2024GlobalAction and each party to the WHO agreement must "[coordinate] multisectoral surveillance to detect and conduct risk assessment of emerging or re-emerging pathogens with pandemic potential" @WHO2025WhoPandemic. To meet this goal, countries must design monitoring systems that efficiently allocate resources to maximize their knowledge of zoonotic disease prevalence and spillover risk. Improving spillover risk estimation therefore requires a multifaceted approach that incorporates #change[wildlife disease] surveillance with data on landscape change and host ecology --- including shifts in reservoir species’ habitats, community composition, and geographic distributions @Murray2018PathogeographyLeveraging @Stephens2016MacroecologyInfectious @Bell2025NaturalSpillover. 
 
-#add[Many surveillance programs for zoonotic pathogens with the potential for widespread harm have been developed: the Global Outbreak Alert and Response Network (GOARN), Global Emerging Infections Surveillance (GEIS), and the Global Early Warning System (GLEWS), to name just a few @Sharan2023SurveillanceResponse. However, these programs rarely utilize biodiversity data to guide surveillance effort.] The field of biodiversity monitoring has established many practices and tools that can directly inform biosurveillance efforts @Poisot2025BiodiversityScience #add[, including many long-term biodiversity monitoring programs, for example: the Long-Term Ecological Research network (LTER), the Natioal Ecological Observatory Network (NEON), TERN, and community driven projects like the North American Breeding Bird Survey (BBS). In addition, open databases like the Global Biodiversity Information Facility (GBIF) have made large-scale data far more accessable to researchers, and data standards like Darwin Core have made data from disperate sources interoperable to enable analyses previously not possible. Further integration of long-term biodiversity monitoring programs into biosurveillance has the potential to substatially improve the spatial design of wildlife disease sampling.]  A #cut[such] core concept #add[in ecological monitoring] is the Biodiversity Observation Network (or BON): a set of monitoring locations designed to best capture the status and trends of biodiversity @Scholes2012BuildingGlobal. Ideally, BONs establish a set of spatial locations at which biodiversity data are collected in standardized #change[forms] #add[(e.g. Essential Biodiversity Variables (EBVs; #cite(<Pereira2013EssentialBiodiversity>, form: "prose")) or Essential Ecosystem Service Variables (EESVs; #cite(<Schwantes2024MonitoringEcosystem>, form: "prose")))], which can then be easily aggregated for the detection and attribution of biodiversity change @Gonzalez2023FrameworkDetection and be used to inform decision-making at local, regional, and ultimately global scales @Gonzalez2023GlobalBiodiversity. Here, we explore how #add[practices from biodiversity monitoring can enable better biosurveillance, and how] the BON perspective #change[enables] #cut[to] #change[prioritization of] locations #change[where] wildlife disease surveillance could be maximally informative, particularly when disease data are scarce. 
+#add[Many surveillance programs for zoonotic pathogens with the potential for widespread harm have been developed: the Global Outbreak Alert and Response Network (GOARN), Global Emerging Infections Surveillance (GEIS), and the Global Early Warning System (GLEWS), to name just a few @Sharan2023SurveillanceResponse. However, these programs rarely utilize biodiversity data to guide surveillance effort.] The field of biodiversity monitoring has established many practices and tools that can directly inform biosurveillance efforts @Poisot2025BiodiversityScience #add[, including many long-term biodiversity monitoring programs, for example: the Long-Term Ecological Research network (LTER), the National Ecological Observatory Network (NEON), TERN, and community driven projects like the North American Breeding Bird Survey (BBS). In addition, open databases like the Global Biodiversity Information Facility (GBIF) have made large-scale data far more accessable to researchers, and data standards like Darwin Core have made data from disperate sources interoperable to enable analyses previously not possible. Further integration of long-term biodiversity monitoring programs into biosurveillance has the potential to substatially improve the spatial design of wildlife disease sampling.]  A #cut[such] core concept #add[in ecological monitoring] is the Biodiversity Observation Network (or BON): a set of monitoring locations designed to best capture the status and trends of biodiversity @Scholes2012BuildingGlobal. Ideally, BONs establish a set of spatial locations at which biodiversity data are collected in standardized #change[forms] #add[(e.g. Essential Biodiversity Variables (EBVs; #cite(<Pereira2013EssentialBiodiversity>, form: "prose")) or Essential Ecosystem Service Variables (EESVs; #cite(<Schwantes2024MonitoringEcosystem>, form: "prose")))], which can then be easily aggregated for the detection and attribution of biodiversity change @Gonzalez2023FrameworkDetection and be used to inform decision-making at local, regional, and ultimately global scales @Gonzalez2023GlobalBiodiversity. Here, we explore how #add[practices from biodiversity monitoring can enable better biosurveillance, and how] the BON perspective #change[enables] #cut[to] #change[prioritization of] locations #change[where] wildlife disease surveillance could be maximally informative, particularly when disease data are scarce. 
 
 Given the cost of effective biosurveillance, strategic allocation of resources toward where, when, what, and how much to sample is imperative to ensure sampling effort yields new and useful information. Efforts have been made to think about biosurveillance sampling prioritization from both a statistical @Farver1985ApplicationSampling @Nusser2008SamplingConsiderations and spatially explicit perspective @Andrade-Pacheco2020FindingHotspots @Dumelle2022ComparisonDesignbased. Here, we develop a context-dependent protocol for adaptive sampling to maximize the reduction of our uncertainty of the status of a given pathogen or host. #change[The most informative data for a particular context depends on what existing data is available (e.g. host occurrence records, pathogen prevalence data) and the local drivers of pathogen prevalence.] #add[Improving understanding of both host presence and pathogen prevalence within host species is essential to assess spillover risk.] #cut[To optimally allocate sampling effort, both for choosing sampling locations and the type of data sampled, it is necessary to prioritize resource allocation towards both improving estimates of host presence and pathogen prevalence within host species.] However, the locations for efficient sampling for these two goals are intrinsically different: to improve host presence prediction we should go where we are most unsure about the host’s presence, whereas to improve prevalence estimation we should rather sample where we are already sure hosts are. 
 
@@ -270,28 +270,6 @@ Better biosurveillance itself is not #add[sufficient to prevent] spillover #cut[
 #v(1em)
 
 #set heading(numbering: none)
-= Figures 
-
-
-#figure(
-  image("../../plots/concept.svg", width: 110%),
-  caption: [*(a)*: The conceptual framework for optimizing sampling priority using host species distribution models, and pathogen prevalence data if available (left). *(b)*: The type of sampling that is most informative (pathogen prevalence vs. host occurrence), depending on a location's level of biodiversity dose (weighted host habitat suitability) and uncertainty about that dose. 
-]
-) <concept>
-
-
-#figure(
-  image("../../plots/india.png", width: 110%),
-  caption: [The case study for India. (a) Biodiversity dose + uncertainty bivariate plot. (b) Number of hosts in prevalence-regime (top 50% of habitat suitability for that species) vs. discovery (top 50% of uncertainty for that species), (c) Sampling priority #change[map and BON sites]. X’s are historical sampling locations from #cite(<Rodrigues1978SerologicalSurvey>, form: "prose") (d) The largest host contributor to priority. #add[Administrative boundaries come from #text(fill: blue)[#link("https://gadm.org/","GADM")].]]
-) <india>
-
-
-#figure(
-  image("../../plots/korea.png", width: 120%),
-  caption: [The case study for South Korea. (*A*): Bivariate plot of dose (increasing green) and dose uncertainty (increasing blue). (*B*): Bivariate plot of dose (increasing green) and prevalence uncertainty (increasing orange; measured as the sum of estimated variance from kriging across each host-virus pair). (*C*): The spatial strata for which occurrence, prevalence, and both forms of sampling should occur (see main text for how these are computed). (*D*) The priority scores for regions where discovery sampling is a priority (increasingly blue) and prevalence sampling is the priority (increasingly purple) in their respective strata. (*E*) The total priority map with sites selected using Balanced Acceptance Sampling. The marker shape of each site corresponds to the type of sampling that should occur there, based on the stratum in (C) that each point falls within.]
-) <korea>
-
-
 #pagebreak()
 
 #show heading.where(level: 1): it =>{
@@ -336,13 +314,41 @@ The workflow described in this manuscript involves many steps, and most of them 
 
 We want to emphasize that sampling points, though given as exact (longitude, latitude) coordinates, are not to be interpreted without critical thought. Since the grain at which the underlying SDMs are operating is often significantly larger than the scale at which one may have to decide where to place a sampling trap, selected points should be thought of as most useful as the centroids of "local" regions (where "local" corresponds to the pixel size of the SDMs used for prioritization) wherein sampling effect could best improve knowledge about the ecological settings of viral transmission. To make this point explicit, if the model suggests sampling for _Mus musculus_ in an urban area and the coordinate itself is in the middle of the center of a highway, the model’s output should be interpreted as indicating the general area where sampling should be done (see below figure). 
 
-  For example, @box-figure shows three selected sampling sites for the second case study on South Korea, with the satellite imagery corresponding to the cell in the priority map that was selected. As the original climate layers have pixels that are approximately 1 $"km"^2$, there is considerable heterogeneity within these pixels. Experts on particular taxa should assess the scope of the local region near each sampling point, and use it to guide the practical logistics of where effort (e.g. traps) are most likely to result in useful information.
+For example, @box-figure shows three selected sampling sites for the second case study on South Korea, with the satellite imagery corresponding to the cell in the priority map that was selected. As the original climate layers have pixels that are approximately 1 $"km"^2$, there is considerable heterogeneity within these pixels. Experts on particular taxa should assess the scope of the local region near each sampling point, and use it to guide the practical logistics of where effort (e.g. traps) are most likely to result in useful information.
 
-  Beyond just the spatial scale at which recommendations are made, temporal variation in both prevalence and host occurrence is a well-known driver of disease dynamics, often driven by environmental variation tied to seasonality 
-  @Altizer2004SeasonalDynamics @Cosgrove2008SeasonalVariation. Factors like migration and birth rates can affect these within-year cycles @vanDijk2014JuvenilesMigrants. Between-year fluctuations, particularly in rodents, are both dramatic and can also counter-intuitively inverse effect on populations’ prevalence @Davis2005FluctuatingRodent. Here, we do not consider temporal variation in host abundances in our sampling recommendation protocol, since to do so would require orders of magnitude more data than we consider available, and would likely require the use of a different class of models/approaches. 
+Beyond just the spatial scale at which recommendations are made, temporal variation in both prevalence and host occurrence is a well-known driver of disease dynamics, often driven by environmental variation tied to seasonality 
+@Altizer2004SeasonalDynamics @Cosgrove2008SeasonalVariation. Factors like migration and birth rates can affect these within-year cycles @vanDijk2014JuvenilesMigrants. Between-year fluctuations, particularly in rodents, are both dramatic and can also counter-intuitively inverse effect on populations’ prevalence @Davis2005FluctuatingRodent. Here, we do not consider temporal variation in host abundances in our sampling recommendation protocol, since to do so would require orders of magnitude more data than we consider available, and would likely require the use of a different class of models/approaches. 
+
+
+#align(center)[[*Figure 4 around here*]]
+
+= Figure Captions 
+
 
 #figure(
-  image("../../plots/annotated_sites.png"),
+  box(),
+  //image("../../plots/concept.svg", width: 110%),
+  caption: [*(a)*: The conceptual framework for optimizing sampling priority using host species distribution models, and pathogen prevalence data if available (left). *(b)*: The type of sampling that is most informative (pathogen prevalence vs. host occurrence), depending on a location's level of biodiversity dose (weighted host habitat suitability) and uncertainty about that dose. 
+]
+) <concept>
+
+
+#figure(
+  box(),
+  //image("../../plots/india.png", width: 110%),
+  caption: [The case study for India. (a) Biodiversity dose + uncertainty bivariate plot. (b) Number of hosts in prevalence-regime (top 50% of habitat suitability for that species) vs. discovery (top 50% of uncertainty for that species), (c) Sampling priority #change[map and BON sites]. X’s are historical sampling locations from #cite(<Rodrigues1978SerologicalSurvey>, form: "prose") (d) The largest host contributor to priority. #add[Administrative boundaries come from #text(fill: blue)[#link("https://gadm.org/","GADM")].]]
+) <india>
+
+
+#figure(
+  box(),
+  //image("../../plots/korea.png", width: 120%),
+  caption: [The case study for South Korea. (*A*): Bivariate plot of dose (increasing green) and dose uncertainty (increasing blue). (*B*): Bivariate plot of dose (increasing green) and prevalence uncertainty (increasing orange; measured as the sum of estimated variance from kriging across each host-virus pair). (*C*): The spatial strata for which occurrence, prevalence, and both forms of sampling should occur (see main text for how these are computed). (*D*) The priority scores for regions where discovery sampling is a priority (increasingly blue) and prevalence sampling is the priority (increasingly purple) in their respective strata. (*E*) The total priority map with sites selected using Balanced Acceptance Sampling. The marker shape of each site corresponds to the type of sampling that should occur there, based on the stratum in (C) that each point falls within. #add[Administrative boundaries come from #text(fill: blue)[#link("https://gadm.org/","GADM")]].]
+) <korea>
+
+#figure(
+  box(),
+  // image("../../plots/annotated_sites.png"),
   caption: [Three selected sites for the second case study (colored markers, left) overlayed on a map of South Korea with the 10 most populous cities shown in dark grey dots, and the major highway network shown in light grey (to get a sense of the accessibility of these sites). Right: Land #change[cover data], derived from OpenStreetMap, for each site. #add[Administrative boundaries come from #text(fill: blue)[#link("https://gadm.org/","GADM")].]]
 ) <box-figure>
 
